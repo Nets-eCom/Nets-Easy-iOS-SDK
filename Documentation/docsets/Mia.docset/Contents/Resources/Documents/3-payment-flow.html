@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3. Payment flow  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="3. Payment flow  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          Mia Docs
+        </a>
+         (37% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">Mia Reference</a>
+      <img class="carat" src="img/carat.png" />
+      3. Payment flow  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="0-getting-started.html">0. Getting started</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="1-terminology.html">1. Terminology</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="2-introduction.html">2. Introduction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="3-payment-flow.html">3. Payment flow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="4-error-codes-handling.html">4. Error codes handling</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="4-error-handling.html">4. Error handling</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="5-licenses.html">5. Licenses</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="6-changelog.html">6. Changelog</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="7-get-in-touch.html">7. Get in touch</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MiaCheckoutController.html">MiaCheckoutController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MiaSDK.html">MiaSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MIASemanticVersionString">MIASemanticVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MIATechnicalVersionString">MIATechnicalVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MiaVersionNumber">MiaVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MiaVersionString">MiaVersionString</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='payment-flow' class='heading'>Payment Flow</h1>
+
+<p>An integration towards <strong>Nets Easy</strong> requires having the paymentId(transactionID) created before the checkout is initialized. Your mobile application can use one of the available integration types, based on your business requirements:</p>
+
+<ol>
+<li><p><strong>HostedPaymentPage <span style="color:green">(recommended)</span></strong>: the Easy checkout page is hosted by <strong>DIBS Easy</strong> and will handle all checkout initialization. <em>This is the suggested approach if your business has only mobile commerce integration</em>.</p></li>
+<li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>: The checkout page will be hosted by you, and also all the checkout initialization and JavaScript callback handling. <em>This approach is not recommended for in-app payments as you may not be able to process transactions with Nordic wallets (Swish, Vipps, MobilePay)</em>.</p></li>
+</ol>
+
+<p>Your application must follow the next flow:</p>
+
+<ul>
+<li><p><strong><a href="https://tech.dibspayment.com/easy/integration-guide#createpayment">Create payment id</a></strong></p>
+
+<ul>
+<li><p>Your mobile application will call an API on your backend to generate the PaymentID. Your backend will call the EASY REST payment API (<strong>DIBSPayment</strong> API) to fetch the required ID, store it in the Database, then return it back to calling application. Based on your chosen integration type, you need to consider the following:</p>
+
+<ul>
+<li><p><strong>HostedPaymentPage <span style="color:green">(recommended)</span></strong>:</p>
+
+<ul>
+<li><p>In the request body, under <strong>checkout</strong> object, make sure to send the parameters: <code>integrationType = HostedPaymentPage</code> and <code>returnURL = YOUR RETURN URL</code>. Make sure that the parameter <code>url</code> is not sent. Easy will initialize the checkout, and will return to you the <code>paymentId</code> and the <code>hostedPaymentPageUrl</code>.</p>
+
+<p><strong>Note</strong>: The value for <code>returnUrl</code> must be a string in URL pattern. It&rsquo;s not required to be a valid web page, since it won&rsquo;t be loaded in the WebView. It is just for detection purpose only for the SDK to know when the checkout process has completed.  </p></li>
+</ul></li>
+<li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>:</p>
+
+<ul>
+<li>In the request body, under checkout object, make sure to send <code>url = YOUR HOSTED CHECKOUT PAGE</code> and <code>integrationType = EmbeddedCheckout</code> and the parameter <code>returnURL</code> should <strong>NOT</strong> be sent. Easy will return the <code>paymentId</code> and you will have to initialize the checkout.<br></li>
+<li><a href="https://tech.dibspayment.com/easy/integration-guide#initcheckout">Initialize the checkout</a> :
+The checkout HTML page will to be simplified for mobile (According to Easy Best-Practice rules, the EASY iFrame will be embedded inside your checkout page. For mobile, this page should be smaller, considering devices screen size. For example, you can build this page with the EASY iFrame only, which will use the generated paymentId and your secret checkout key).
+Required contents of the Checkout HTML page:</li>
+<li><p>Include the checkout JavaScript URL in the page <code>&lt;head&gt;</code> tag</p>
+<pre class="highlight javascript"><code><span class="c1">//TEST environment script</span>
+<span class="nl">https</span><span class="p">:</span><span class="c1">//test.checkout.dibspayment.eu/v1/checkout.js?v=1 </span>
+<span class="c1">//PROD environment script</span>
+<span class="nl">https</span><span class="p">:</span><span class="c1">//checkout.dibspayment.eu/v1/checkout.js?v=1</span>
+</code></pre></li>
+<li><p>Add an empty <code>&lt;div&gt;</code> tag with a custom ID (e.g. dibs-complete-checkout)</p>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"YOUR UNIQUE ID"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></li>
+<li><p>Introduce a page variable in a <code>&lt;script&gt;</code> tag to build all info required for the payment. The script will run once the page is loaded, and the variable will be used by the JS file.</p>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">checkoutOptions</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="na">checkoutKey</span><span class="p">:</span><span class="s2">"CHECKOUTKEY"</span><span class="p">,</span>
+                        <span class="na">paymentId</span> <span class="p">:</span><span class="s2">"PAYMENTID"</span><span class="p">,</span>
+                        <span class="na">language</span><span class="p">:</span> <span class="s2">"en-GB"</span><span class="p">,</span>
+                        <span class="na">containerId</span> <span class="p">:</span> <span class="s2">"YOUR UNIQUE ID"</span><span class="p">,</span> <span class="p">};</span>
+</code></pre></li>
+<li><p>Instantiate the Dibs.Checkout object and add listener for payment completed event:</p>
+<pre class="highlight javascript"><code><span class="nx">dibsCheckout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'payment-completed'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">'/eu.nets.mia.paymentcompleted'</span><span class="p">;</span> <span class="p">});</span>
+</code></pre>
+
+<p><strong>NOTE:</strong> Checkout HTML content example:</p>
+<pre class="highlight html"><code>    <span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="nt">&lt;html&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;head&gt;</span>
+                <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;title&gt;</span>Webshop with Easy Payment<span class="nt">&lt;/title&gt;</span>
+                    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"SOURCEURL"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+                    <span class="nt">&lt;/head&gt;</span>
+            <span class="nt">&lt;body&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"dibs-iframe"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"dibs-complete-checkout"</span><span class="nt">&gt;&lt;/div&gt;</span>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+                        <span class="kd">var</span> <span class="nx">checkoutOptions</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="na">checkoutKey</span><span class="p">:</span> <span class="s2">"CHECKOUTKEY"</span><span class="p">,</span>
+                            <span class="na">paymentId</span> <span class="p">:</span> <span class="s2">"REPLACETHIS"</span><span class="p">,</span>
+                            <span class="na">language</span><span class="p">:</span> <span class="s2">"en-GB"</span><span class="p">,</span>
+                            <span class="na">containerId</span> <span class="p">:</span> <span class="s2">"dibs-complete-checkout"</span><span class="p">,</span>
+                        <span class="p">};</span>
+                    <span class="kd">var</span> <span class="nx">dibsCheckout</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dibs</span><span class="p">.</span><span class="nx">Checkout</span><span class="p">(</span><span class="nx">checkoutOptions</span><span class="p">);</span>
+                    <span class="nx">dibsCheckout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'payment-completed'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">'/eu.nets.mia.paymentcompleted'</span><span class="p">;</span>
+                                    <span class="p">});</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">checkoutOptions</span><span class="p">);</span>
+                        <span class="nt">&lt;/script&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;/html&gt;</span>
+</code></pre>
+
+<p><strong>Important:</strong> it&rsquo;s mandatory that your Checkout HTML page will add the listener for &lsquo;payment-completed&rsquo; event, and inside the callback function to call for <code>window.location = &#39;/eu.nets.mia.paymentcompleted&#39;</code>. Without this implementation on your page, the SDK cannot know when the payment process has completed and to return the user back to your application with a MiA Delegate object.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><p><strong><a href="https://tech.dibspayment.com/easy/checkout-guide">Handle Consumer Data</a></strong> :</p>
+
+<p>Apart from the standard checkout, <strong>EASY</strong> supports prefilling the consumer data while creating the payment ID to offer a faster checkout and better user experience. Based on your requirement, <strong>EASY</strong> supports the following types of Consumer Data Handling by the merchant.</p>
+
+<ul>
+<li><p><strong>Inject address mode</strong> :</p>
+
+<ul>
+<li><p>The merchant&rsquo;s app can prefill the consumer data and send it to <strong>EASY Checkout</strong> while creating the payment ID. The <strong>checkout</strong> object under the request body must contain the <code>consumer</code> data and <code>merchantHandlesConsumerData = true</code>.  Here is an example :</p>
+<pre class="highlight swift"><code><span class="s">"checkout"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s">"consumer"</span><span class="p">:{</span>
+      <span class="s">"email"</span><span class="p">:</span><span class="s">"john.doe@doemail.com"</span><span class="p">,</span>
+      <span class="s">"shippingAddress"</span><span class="p">:{</span>
+         <span class="s">"addressLine1"</span><span class="p">:</span><span class="s">"Toodels street 1"</span><span class="p">,</span>
+         <span class="s">"addressLine2"</span><span class="p">:</span><span class="s">"Co/ John"</span><span class="p">,</span>
+         <span class="s">"postalCode"</span><span class="p">:</span><span class="s">"0956"</span><span class="p">,</span>
+         <span class="s">"city"</span><span class="p">:</span><span class="s">"Stockholm"</span><span class="p">,</span>
+         <span class="s">"country"</span><span class="p">:</span><span class="s">"SWE"</span>
+      <span class="p">},</span>
+      <span class="s">"phoneNumber"</span><span class="p">:{</span>
+         <span class="s">"prefix"</span><span class="p">:</span><span class="s">"+46"</span><span class="p">,</span>
+         <span class="s">"number"</span><span class="p">:</span><span class="s">"0123456789"</span>
+      <span class="p">},</span>
+      <span class="s">"privatePerson"</span><span class="p">:{</span>
+         <span class="s">"firstName"</span><span class="p">:</span><span class="s">"john"</span><span class="p">,</span>
+         <span class="s">"lastName"</span><span class="p">:</span><span class="s">"Doe"</span>
+      <span class="p">}</span>
+   <span class="p">},</span>
+    <span class="s">"merchantHandlesConsumerData"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+
+</code></pre></li>
+</ul></li>
+<li><p><strong>No Shipping mode</strong> </p>
+
+<ul>
+<li><p>If the purchase    does not require physical shipping, then the merchant app can prefill only the <code>email</code> and <code>postalCode</code> along with <code>merchantHandlesConsumerData = true</code> while creating the payment ID. Here is an example :</p>
+<pre class="highlight swift"><code><span class="s">"checkout"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s">"consumer"</span><span class="p">:{</span>
+      <span class="s">"email"</span><span class="p">:</span><span class="s">"john.doe@doemail.com"</span><span class="p">,</span>
+      <span class="s">"shippingAddress"</span><span class="p">:{</span>
+         <span class="s">"postalCode"</span><span class="p">:</span><span class="s">"0956"</span><span class="p">,</span>
+      <span class="p">}</span>
+   <span class="p">},</span>
+    <span class="s">"merchantHandlesConsumerData"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+
+</code></pre></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Normal checkout</th>
+<th style="text-align: center">Merchant handled consumer data checkout</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="./Resources/NormalCheckout.PNG" alt=""></td>
+<td style="text-align: center"><img src="./Resources/MerchantHandledCheckout.PNG" alt=""></td>
+</tr>
+</tbody></table>
+
+<p><strong>Presenting Mia SDK Checkout WebView</strong></p>
+
+<p>After obtaining a payment ID from Easy (<a href="https://tech.dibspayment.com/easy/api/paymentapi">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">miaCheckoutController</span> <span class="o">=</span> <span class="kt">MiaSDK</span><span class="o">.</span><span class="nf">checkoutControllerForPayment</span><span class="p">(</span>
+    <span class="nv">withID</span><span class="p">:</span> <span class="n">paymentID</span><span class="p">,</span>
+    <span class="nv">paymentURL</span><span class="p">:</span> <span class="n">paymentURL</span><span class="p">,</span>
+    <span class="nv">isEasyHostedWithRedirectURL</span><span class="p">:</span> <span class="n">easyHostedRedirectURL</span><span class="p">,</span>
+    <span class="nv">success</span><span class="p">:</span> <span class="p">{</span> <span class="n">controller</span> <span class="k">in</span> <span class="cm">/* handle success */</span> <span class="p">},</span>
+    <span class="nv">cancellation</span><span class="p">:</span> <span class="p">{</span> <span class="n">controller</span> <span class="k">in</span> <span class="cm">/* handle cancellation */</span> <span class="p">},</span>
+    <span class="nv">failure</span><span class="p">:</span> <span class="p">{</span> <span class="n">controller</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> <span class="cm">/* handle failure */</span> <span class="p">}</span>
+<span class="p">)</span>
+</code></pre>
+
+<p>The values for <code>paymentURL</code> and <code>isEasyHostedWithRedirectURL</code> are based on the chosen integration type when fetching the payment ID in create-payment API call. (<em>HostedPaymentPage</em> or <em>EmbeddedCheckout</em> integration type).</p>
+
+<ul>
+<li><p><strong>HostedPaymentPage</strong>:</p>
+
+<ul>
+<li><em>Payment URL:</em> For this integration type, the <code>paymentURL</code> is obtained in the JSON response of create-payment API request; under <code>hostedPaymentPageUrl</code> key.</li>
+<li><em>Redirect URL:</em> The SDK expects the same redirect URL that was passed in create-payment API request under <code>returnUrl</code> key. Pass this value to the SDK in <code>isEasyHostedWithRedirectURL</code> parameter. 
+(<code>{&quot;order&quot; : {…}, &quot;checkout&quot; : { &quot;returnUrl&quot; : string, …} }</code>)</li>
+</ul></li>
+<li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>:</p>
+
+<ul>
+<li><em>Payment URL:</em> Pass the checkout / payment URL your merchant hosts.</li>
+<li><em>Redirect URL:</em> A redirect URL is not required for embedded checkout hosted by merchant. Pass <code>nil</code> to the SDK in <code>isEasyHostedWithRedirectURL</code> parameter.</li>
+</ul></li>
+</ul>
+
+<p><strong>Important:</strong> Once a purchase is completed, the customer must receive a confirmation of the order and a receipt in the form of an on-screen-display and e-mail. Meaning that after you call <a href="https://tech.dibspayment.com/easy/api/rest/charge-payment">Charge Payment</a>, you need to call <a href="https://tech.dibspayment.com/easy/api/rest/get-payment">Get Payment</a> API to retrieve the payment information and display it to the user.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2020-03-03)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

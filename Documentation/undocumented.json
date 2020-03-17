@@ -1,0 +1,40 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/Controllers/MiaCheckoutController.h",
+      "line": 53,
+      "symbol": "MiaCheckoutController",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/Controllers/MiaCheckoutController.h",
+      "line": 55,
+      "symbol": "MiaCheckoutController.+makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/MiaSDK.h",
+      "line": 14,
+      "symbol": "MiaSDK",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia-jazzy.h",
+      "line": 49,
+      "symbol": "MiaVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia-jazzy.h",
+      "line": 52,
+      "symbol": "MiaVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia"
+}

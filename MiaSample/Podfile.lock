@@ -1,0 +1,48 @@
+PODS:
+  - Alamofire (4.7.3)
+  - AlamofireNetworkActivityLogger (2.3.0):
+    - Alamofire (~> 4.6)
+  - Crashlytics (3.11.1):
+    - Fabric (~> 1.8.1)
+  - DropDown (2.3.13)
+  - Fabric (1.8.2)
+  - GCDWebServer (3.4.2):
+    - GCDWebServer/Core (= 3.4.2)
+  - GCDWebServer/Core (3.4.2)
+  - IQKeyboardManagerSwift (6.2.0)
+  - SwiftyJSON (4.2.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireNetworkActivityLogger
+  - Crashlytics
+  - DropDown (~> 2.3.2)
+  - Fabric
+  - GCDWebServer (~> 3.0)
+  - IQKeyboardManagerSwift
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityLogger
+    - Crashlytics
+    - DropDown
+    - Fabric
+    - GCDWebServer
+    - IQKeyboardManagerSwift
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireNetworkActivityLogger: 6f3076652ab7fa6c819b59be08ea038d339e36d8
+  Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
+  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+
+PODFILE CHECKSUM: 11973faa1268ba22c79e55f1a96161a216d5cb1a
+
+COCOAPODS: 1.8.4

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MiaCheckoutController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Class/MiaCheckoutController" class="dashAnchor"></a>
+
+    <a title="MiaCheckoutController Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Mia Docs
+        </a>
+         (37% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Mia Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      MiaCheckoutController Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../0-getting-started.html">0. Getting started</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../1-terminology.html">1. Terminology</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../2-introduction.html">2. Introduction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../3-payment-flow.html">3. Payment flow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../4-error-codes-handling.html">4. Error codes handling</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../4-error-handling.html">4. Error handling</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../5-licenses.html">5. Licenses</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../6-changelog.html">6. Changelog</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../7-get-in-touch.html">7. Get in touch</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MiaCheckoutController.html">MiaCheckoutController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MiaSDK.html">MiaSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@MIASemanticVersionString">MIASemanticVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@MIATechnicalVersionString">MIATechnicalVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@MiaVersionNumber">MiaVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@MiaVersionString">MiaVersionString</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>MiaCheckoutController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">MiaCheckoutController</span> <span class="p">:</span> <span class="nc">UIViewController</span>
+
+<span class="k">+</span> <span class="p">(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">)</span><span class="nf">makeWithPaymentID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
+                                  <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
+                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                     <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
+                                <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
+                                     <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:"></a>
+                    <a name="//apple_ref/objc/Method/+makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:">+makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">)</span><span class="nf">makeWithPaymentID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
+                                  <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
+                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                     <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
+                                <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
+                                     <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">make</span><span class="p">(</span><span class="n">withPaymentID</span> <span class="nv">paymentID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">paymentURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">redirectURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">cancellation</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MiaCheckoutController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2020-03-03)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <head>
+            <meta charset="UTF-8">
+                <title>Webshop with Easy Payment</title>
+                <script src="SOURCEURL" type="text/javascript"></script>
+                </head>
+        <body>
+            <div>
+                <h1>MiA Demo Webshop</h1>
+                <hr>
+            </div>
+            <div id="dibs-iframe">
+                <div id="dibs-complete-checkout"></div>
+                <script type="text/javascript">
+                    var checkoutOptions = {
+                        checkoutKey: "CHECKOUTKEY",
+                        paymentId : "REPLACETHIS",
+                        language: "en-GB",
+                        containerId : "dibs-complete-checkout",
+                    };
+                var dibsCheckout = new Dibs.Checkout(checkoutOptions);
+                dibsCheckout.on('payment-completed', function(response) {
+                                window.location = '/eu.nets.mia.paymentcompleted';
+                                });
+                    </script>
+            </div>
+            </div>
+        </body>
+</html>
+
