@@ -17,7 +17,7 @@ class ProfileHelper: NSObject {
                               ["country":"Denmark","code":"DNK"],
                               ["country":"Sweden","code":"SWE"],
                               ["country":"Albania","code":"ALB"],
-                              ["country":"Albania","code":"AND"],
+                              ["country":"Andorra","code":"AND"],
                               ["country":"Armenia","code":"ARM"],
                               ["country":"Austria","code":"AUT"],
                               ["country":"Azerbaijan","code":"AZE"],
@@ -51,7 +51,6 @@ class ProfileHelper: NSObject {
                               ["country":"Malta","code":"MLT"],
                               ["country":"Montenegro","code":"MNE"],
                               ["country":"Netherlands","code":"NLD"],
-                              ["country":"Norway","code":"NOR"],
                               ["country":"Poland","code":"POL"],
                               ["country":"Portugal","code":"PRT"],
                               ["country":"Romania","code":"ROU"],
@@ -64,12 +63,12 @@ class ProfileHelper: NSObject {
                               ["country":"Ukraine","code":"UKR"],
                               ["country":"Vatican City","code":"VAT"]]
     
-    func getMissingParameters(handlingConsumerDataType:Int,profile:Profile) -> String {
+    func getMissingParameters(handlingConsumerDataType: HandlingConsumerData,profile:Profile) -> String {
         var missingParameters = ""
         let mirror = Mirror(reflecting: profile)
         
         switch handlingConsumerDataType {
-            case HandlingConsumerData.InjectAddess.rawValue:
+            case HandlingConsumerData.injectAddress:
                 for child in mirror.children {
                     if (child.value as! String == "") {
                         missingParameters.append("* "+child.label!+"\n")
@@ -77,7 +76,7 @@ class ProfileHelper: NSObject {
                 }
                 missingParameters = missingParameters.replacingOccurrences(of: "* addressLine2\n", with: "")
             
-            case HandlingConsumerData.NoShippingMode.rawValue:
+            case HandlingConsumerData.noShippingMode:
                  for child in mirror.children {
                     if ((child.label == "email" || child.label == "postalCode") && child.value as! String == "") {
                          missingParameters.append("* "+child.label!+"\n")
@@ -91,24 +90,14 @@ class ProfileHelper: NSObject {
     }
     
     func getProfile() -> Profile? {
-        if let data =  (UserDefaults.standard.object(forKey: "Profile") as? Data){
-            if let profile = try? JSONDecoder().decode(Profile.self, from: data){
-                return profile
-            }
-        }
-        return nil
+        return Settings.userProfile
     }
     
-    func syncProfileToDefaults(profile:Profile){
-        if let encoded = try? JSONEncoder().encode(profile) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "Profile")
-            defaults.synchronize()
-        }
+    func syncProfileToDefaults(profile: Profile){
+        Settings.userProfile = profile
     }
     
     func removeProfileDataFromDefaults(){
-        UserDefaults.standard.removeObject(forKey: "Profile")
-        UserDefaults.standard.synchronize()
+        Settings.userProfile = nil
     }
 }

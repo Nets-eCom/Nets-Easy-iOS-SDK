@@ -46,7 +46,7 @@ class InputKeyViewController: UIViewController {
     @IBOutlet weak var productionCheckoutKeyLabel: UILabel!
     
     // MARK: fileprivate variables
-    fileprivate let cache = Cache()
+
     fileprivate let constant = Constant()
     
     // MARK: life cycle
@@ -70,19 +70,19 @@ class InputKeyViewController: UIViewController {
     
     @IBAction func confirmNewSecretKeys(_ sender: UIButton) {
         if self.testSecretKeyTextField.hasText {
-            cache.addObject(object: self.testSecretKeyTextField.text!, forKey: "MiaSampleTestSecretKey")
+            Settings.testEnvironmentSecretKey = self.testSecretKeyTextField.text!
         }
         
         if self.testCheckoutKeyTextField.hasText {
-            cache.addObject(object: self.testCheckoutKeyTextField.text!, forKey: "MiaSampleTestCheckoutKey")
+            Settings.testCheckoutKey = testCheckoutKeyTextField.text!
         }
         
         if self.productionSecretKeyTextField.hasText {
-            cache.addObject(object: self.productionSecretKeyTextField.text!, forKey: "MiaSampleProductionSecretKey")
+            Settings.productionSecretKey = productionSecretKeyTextField.text!
         }
         
         if self.productionCheckoutKeyTextField.hasText {
-            cache.addObject(object: self.productionCheckoutKeyTextField.text!, forKey: "MiaSampleProductionCheckoutKey")
+            Settings.productionCheckoutKey = productionCheckoutKeyTextField.text!
         }
         
         self.navigationController?.popViewController(animated: true)

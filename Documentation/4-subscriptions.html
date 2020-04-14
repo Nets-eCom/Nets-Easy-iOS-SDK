@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>4. Subscriptions  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="4. Subscriptions  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          Mia Docs
+        </a>
+         (37% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">Mia Reference</a>
+      <img class="carat" src="img/carat.png" />
+      4. Subscriptions  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="0-getting-started.html">0. Getting started</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="1-terminology.html">1. Terminology</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="2-introduction.html">2. Introduction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="3-payment-flow.html">3. Payment flow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="4-subscriptions.html">4. Subscriptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="5-licenses.html">5. Licenses</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="6-changelog.html">6. Changelog</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="7-get-in-touch.html">7. Get in touch</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MiaCheckoutController.html">MiaCheckoutController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MiaSDK.html">MiaSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MIASemanticVersionString">MIASemanticVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MIATechnicalVersionString">MIATechnicalVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MiaVersionNumber">MiaVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@MiaVersionString">MiaVersionString</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h2 id='subscriptions-a-href-https-tech-dibspayment-com-easy-integration-recurring-recurring-api-a' class='heading'>Subscriptions (<a href="https://tech.dibspayment.com/easy/integration/recurring">Recurring API</a>)</h2>
+
+<p>EASY supports subscriptions allowing charging customers on a regular basis. The API contains subscription creation and charging of subscriptions.
+Merchant is responsible for managing subscriptions after they&rsquo;re created with <em>EASY recurring API</em>. The following code samples demonstrate the steps 
+required to create and charge subscriptions. </p>
+<h3 id='create-a-subscription-with-em-easy-recurring-api-em' class='heading'>Create a Subscription with <em>EASY Recurring API</em></h3>
+
+<p>To create a subscription, include a <em>subscription</em> JSON object in the request body of the POST payment request as shown in <a href="https://tech.dibspayment.com/easy/integration/recurring">EASY documentation</a>. </p>
+<pre class="highlight swift"><code>
+<span class="c1">/// Subscription request body</span>
+<span class="kd">struct</span> <span class="kt">SubscriptionRequest</span><span class="p">:</span> <span class="kt">Encodable</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">Order</span>
+    <span class="k">let</span> <span class="nv">checkout</span><span class="p">:</span> <span class="kt">Checkout</span>
+    <span class="k">let</span> <span class="nv">merchantNumber</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">let</span> <span class="nv">notifications</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">let</span> <span class="nv">subscription</span><span class="p">:</span> <span class="kt">Subscription</span>
+
+    <span class="kd">struct</span> <span class="kt">Subscription</span><span class="p">:</span> <span class="kt">Encodable</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt">String</span> 
+        <span class="k">let</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">/// Response object following subscription creation</span>
+<span class="kd">struct</span> <span class="kt">SubscriptionRegistration</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">paymentId</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">let</span> <span class="nv">hostedPaymentPageUrl</span><span class="p">:</span> <span class="kt">String</span>
+<span class="p">}</span>
+
+<span class="c1">// E.g. subscription creation request. See MiaSample app for more</span>
+<span class="kd">func</span> <span class="nf">createSubscription</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">SubscriptionRegistration</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="n">baseURL</span><span class="o">.</span><span class="nf">appending</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"payments/"</span><span class="p">)</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="n">authorizationHeaders</span><span class="p">)</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="k">try!</span> <span class="kt">JSONEncoder</span><span class="p">()</span><span class="o">.</span><span class="nf">encode</span><span class="p">(</span><span class="kt">SubscriptionRequest</span><span class="p">())</span>
+    <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">fetchJson</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span> <span class="nv">decodeDelegate</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="n">success</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>A subscription object contains an <code>endDate</code>, last date of the subscription, and an <code>interval</code> representing the interval (in number of days) at which the subscription can be charged.<br>
+For recurring payments chargeable at any given time (with no regular interval), <code>interval = 0</code> should be used. </p>
+
+<p><em>EASY recurring API</em> expects the <code>endDate</code> to have the following format: <code>yyyy-MM-dd&#39;T&#39;HH:mm:ss+zz:zz</code>.</p>
+
+<p>e.g. <code>2019-07-18T00:00:00+01:00</code> for timezone GMT + 1 hour. </p>
+
+<p>The following extension on <code>DateFormatter</code> can be used to convert a given <code>date</code> and <code>timezone</code> to this format:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">DateFormatter</span> <span class="p">{</span>
+    <span class="c1">/// Returns date formatted for EASY recurring API</span>
+    <span class="c1">/// e.g. output: "2019-07-18T00:00:00+00:00"</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">easyAPIFormatted</span><span class="p">(</span><span class="n">_</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">timezone</span><span class="p">:</span> <span class="kt">TimeZone</span> <span class="o">=</span> <span class="o">.</span><span class="n">current</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">timezoneOffset</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="kt">DateFormatter</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">timeZone</span> <span class="o">=</span> <span class="n">timezone</span>
+            <span class="k">let</span> <span class="nv">seconds</span> <span class="o">=</span> <span class="kt">DateFormatter</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">timeZone</span><span class="o">.</span><span class="nf">secondsFromGMT</span><span class="p">()</span>
+            <span class="k">let</span> <span class="nv">hours</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">3600</span>
+            <span class="k">let</span> <span class="nv">minutes</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kt">String</span><span class="p">(</span><span class="nv">format</span><span class="p">:</span> <span class="s">"%+.2d:%.2d"</span><span class="p">,</span> <span class="n">hours</span><span class="p">,</span> <span class="n">minutes</span><span class="p">)</span>
+        <span class="p">}()</span>
+        <span class="k">return</span> <span class="kt">DateFormatter</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">string</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">date</span><span class="p">)</span> <span class="o">+</span> <span class="n">timezoneOffset</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">DateFormatter</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">dateFormatter</span> <span class="o">=</span> <span class="kt">DateFormatter</span><span class="p">()</span>
+        <span class="n">dateFormatter</span><span class="o">.</span><span class="n">dateFormat</span> <span class="o">=</span> <span class="s">"yyyy-MM-dd'T'HH:mm:ss"</span>
+        <span class="k">return</span> <span class="n">dateFormatter</span>
+    <span class="p">}()</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='retrieve-a-newly-created-subscription' class='heading'>Retrieve a Newly Created Subscription</h3>
+
+<p><em>EASY recurring API</em> returns <code>paymentID</code> following subscription creation. To obtain the subscription details, use this ID to fetch subscription ID for the newly created subscription. </p>
+
+<p>See API <a href="https://tech.dibspayment.com/easy/integration/recurring#recurring_get_subscription_details">documentation</a></p>
+<pre class="highlight swift"><code><span class="c1">/// Response object following fetch request of subscription with `paymentId`</span>
+<span class="c1">/// Object contains subscription ID that can be used to fetch subscription details</span>
+<span class="kd">struct</span> <span class="kt">SubscriptionPaymentDetails</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">payment</span><span class="p">:</span> <span class="kt">Payment</span>
+
+    <span class="kd">struct</span> <span class="kt">Payment</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">created</span><span class="p">:</span> <span class="kt">String</span>
+        <span class="k">let</span> <span class="nv">subscription</span><span class="p">:</span> <span class="kt">Subscription</span>
+    <span class="p">}</span>
+
+    <span class="kd">struct</span> <span class="kt">Subscription</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// E.g. payment (for subscription) request. See MiaSample app for more</span>
+<span class="kd">func</span> <span class="nf">fetchSubscriptionPayment</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">SubscriptionPaymentDetails</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="n">baseURL</span><span class="o">.</span><span class="nf">appending</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"payments/</span><span class="se">\(</span><span class="n">paymentID</span><span class="se">)</span><span class="s">"</span><span class="p">)</span><span class="o">!</span>
+    <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="k">get</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">fetchJson</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span> <span class="nv">decodeDelegate</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="n">success</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Subscription details can be obtained from EASY using a subscription ID. </p>
+<pre class="highlight swift"><code><span class="c1">// E.g. subscription details fetch request. See MiaSample app for more</span>
+<span class="kd">func</span> <span class="nf">fetchSubscriptionDetails</span><span class="p">(</span><span class="nv">subscriptionID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">SubscriptionDetails</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="n">baseURL</span><span class="o">.</span><span class="nf">appending</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"subscriptions/</span><span class="se">\(</span><span class="n">subscriptionID</span><span class="se">)</span><span class="s">"</span><span class="p">)</span><span class="o">!</span>
+    <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="k">get</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">fetchJson</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span> <span class="nv">decodeDelegate</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="n">success</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="n">failure</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">/// Subscription Details - Response to subscriptions fetch for given `subscriptionID`</span>
+<span class="kd">struct</span> <span class="kt">SubscriptionDetails</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">subscriptionId</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">let</span> <span class="nv">frequency</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="k">let</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">let</span> <span class="nv">paymentDetails</span><span class="p">:</span> <span class="kt">PaymentDetails</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='charging-subscription' class='heading'>Charging Subscription</h3>
+
+<p>Subscriptions can be charged via a POST charge request providing subscription ID and a charge request body containing order details. </p>
+
+<p>See API <a href="https://tech.dibspayment.com/easy/integration/recurring#recurring_single_charge">documentation</a></p>
+<pre class="highlight swift"><code><span class="c1">/// Success response following charge-subscription request</span>
+<span class="kd">struct</span> <span class="kt">ChargeSubscriptionResponse</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">paymentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chargeId</span><span class="p">:</span> <span class="kt">String</span>
+<span class="p">}</span>
+
+<span class="c1">// E.g. charge request. See MiaSample app for more</span>
+<span class="kd">func</span> <span class="nf">chargeSubscription</span><span class="p">(</span><span class="nv">subscriptionID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">ChargeSubscriptionResponse</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="n">baseURL</span><span class="o">.</span><span class="nf">appending</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"subscriptions/</span><span class="se">\(</span><span class="n">subscriptionID</span><span class="se">)</span><span class="s">/charges"</span><span class="p">)</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="kd">struct</span> <span class="kt">ChargeRequest</span><span class="p">:</span> <span class="kt">Encodable</span> <span class="p">{</span> <span class="k">let</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">Order</span> <span class="p">}</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="k">try!</span> <span class="kt">JSONEncoder</span><span class="p">()</span><span class="o">.</span><span class="nf">encode</span><span class="p">(</span><span class="kt">ChargeRequest</span><span class="p">(</span><span class="nv">order</span><span class="p">:</span> <span class="kt">TheOrder</span><span class="p">))</span>
+    <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">fetchJson</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span> <span class="nv">decodeDelegate</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="n">success</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="n">failure</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>After creating a subscription, merchant is responsible for storing and managing the subscription. </p>
+
+<p>(Note that the <em>MiaSample</em> app stores subscriptions in the device for demo purposes but we recommend your app backend for storage)</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2020-04-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

@@ -28,6 +28,13 @@
 import UIKit
 import Mia
 
+struct Order {
+    let amount: Int
+    let currency: String
+    
+    static var shared = Order(amount: 0, currency: "NOK")
+}
+
 class CheckoutViewController: UIViewController {
     
     @IBOutlet weak var contentScrollView: UIScrollView!
@@ -60,7 +67,7 @@ class CheckoutViewController: UIViewController {
         
         amountTextField.delegate = self
         currencyPicker.delegate = self
-        
+                
         if let temp = self.getIPAddress() {
             self.urlString = temp
             print(self.urlString)
@@ -73,8 +80,45 @@ class CheckoutViewController: UIViewController {
                                                selector: #selector(disableTouching),
                                                name: NSNotification.Name("MiaSampleDisableTouching"),
                                                object: nil)
+        
+        // Add subscriptions button
+        
+        let subscribeButton: UIButton = {
+            let button = UIButton()
+            button.setTitle(.subscribe, for: .normal)
+            button.backgroundColor = UIColor.black
+            button.addTarget(self, action: #selector(addNewSubscription(_:)), for: .touchUpInside)
+            return button
+        }()
+        
+        buttonStackview.addArrangedSubview(subscribeButton)
+                
+        amountTextField.addTarget(self, action: #selector(updateOrderAmount(_:)), for: .editingChanged)
+        currencyPicker.addTarget(self, action: #selector(updateOrderAmount(_:)), for: .editingDidEnd)
+        updateOrderAmount(amountTextField)
     }
     
+    @objc func updateOrderAmount(_: UITextField) {
+        let amount = amountTextField?.text?.replacingOccurrences(of: ",", with: ".")
+        Order.shared = Order(
+            amount: Int((Float(amount ?? "") ?? 0) * 100), // To cents
+            currency: currencyCode
+        )
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        buttonStackview.arrangedSubviews.forEach { view in
+            view.layer.cornerRadius = 6
+            view.clipsToBounds = true
+        }
+    }
+    
+    @objc func addNewSubscription(_: UIButton) {
+        let subscriptionsViewController = SubscriptionsViewController(shouldPresentAddSubscriptionAlert: true)
+        navigationController?.pushViewController(subscriptionsViewController, animated: true)
+    }
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.contentScrollView.scrollToBottom(animated: false)
@@ -94,10 +138,10 @@ extension CheckoutViewController {
         if self.urlString != "" {
             self.showIndicator(show: true) {
                 
-                let integrationType  = UserDefaults.standard.integer(forKey: "MiaSampleIntegrationType")
-                let handlingConsumerDataType  = UserDefaults.standard.integer(forKey: "MiaSampleHandlingConsumerDataType")
+                let integrationType = IntegrationType.cached
+                let handlingConsumerDataType = HandlingConsumerData.cached
 
-                if(handlingConsumerDataType == HandlingConsumerData.InjectAddess.rawValue || handlingConsumerDataType == HandlingConsumerData.NoShippingMode.rawValue){
+                if(handlingConsumerDataType == HandlingConsumerData.injectAddress || handlingConsumerDataType == HandlingConsumerData.noShippingMode){
                     if let profile = ProfileHelper.shared.getProfile() {
                         let str = ProfileHelper.shared.getMissingParameters(handlingConsumerDataType:handlingConsumerDataType, profile: profile)
                         if(!str.isEmpty){
@@ -122,14 +166,11 @@ extension CheckoutViewController {
                             var easyHostedRedirectURL: String? = Constant().testReturnUrl
                             
                             // Local-hosted checkout
-                            if integrationType == CheckoutType.EmbeddedCheckout.rawValue {
+                            if integrationType == .embeddedCheckout {
                                 paymentURL = self.urlString
                                 easyHostedRedirectURL = nil
                             }
-                                                        
-                            // Start server to host embedded checkout and/or terms-and-conditions page
-                            ServerManager.shared.start(paymentId: paymentId)
-                            
+                                                                                    
                             let success: (MiaCheckoutController) -> Void = { controller in
                                 self.stopServer()
                                 controller.dismiss(animated: true) { self.getPayement(forID: paymentId) }
@@ -155,6 +196,9 @@ extension CheckoutViewController {
                                 cancellation: cancellation,
                                 failure: failure
                             )
+                            
+                            // Start server to host embedded checkout and/or terms-and-conditions page
+                            ServerManager.shared.start(paymentId: paymentId)
                             
                             self.present(miaSDK, animated: true, completion: nil)
                             
@@ -272,6 +316,7 @@ extension CheckoutViewController {
 // MARK: TextField Delegate
 extension CheckoutViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            
         if textField == currencyPicker {
             return false
         }
@@ -285,7 +330,10 @@ extension CheckoutViewController: UITextFieldDelegate {
                 return false
             }
         }
+        
         return true
     }
+
 }
+
 

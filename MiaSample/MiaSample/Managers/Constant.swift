@@ -29,11 +29,11 @@ import Foundation
 
 class Constant {
     public static var testMode: Bool {
-        return !UserDefaults.standard.bool(forKey: "MiaSampleProductionEnvironment")
+        !Settings.isProductionEnvironment
     }
     
     public static var chargePayment: Bool {
-        return UserDefaults.standard.bool(forKey: "MiaSampleChargePayment")
+        Settings.isChargingPaymentEnabled
     }
     
     let testSourceURL = "https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"
@@ -43,58 +43,22 @@ class Constant {
     let prodBaseURL = "https://api.dibspayment.eu"
     
     let testReturnUrl = "https://127.0.0.1/redirect.php"
-    
-    let embeddedCheckout = "EmbeddedCheckout"
-    let hostedPaymentPage = "HostedPaymentPage"
-
-    
-    fileprivate let cache = Cache()
-    
-    //Test Keys
-    let testCheckoutKeyString = "YOUR TEST CHECKOUT KEY IS HERE"
-    let testSecretKeyString = "YOUR TEST SECRET KEY"
-    
-    
-    //Production keys
-     let prodCheckoutKeyString  = "YOUR PRODUCTION CHECKOUT KEY IS HERE"
-     let prodSecretKeyString    = "YOUR PRODUCTION SECRET KEY"
-    
-    
+        
     // MARK: private variables
     private var testCheckoutKey: String {
-        if cache.object(forKey: "MiaSampleTestCheckoutKey") != nil {
-            let temp = String(describing: cache.object(forKey: "MiaSampleTestCheckoutKey")!)
-            return temp
-        }else {
-            return testCheckoutKeyString
-        }
+        Settings.testCheckoutKey ?? NetsTest.checkoutKey
     }
     
     private var prodCheckoutKey: String {
-        if cache.object(forKey: "MiaSampleProductionCheckoutKey") != nil {
-            let temp = String(describing: cache.object(forKey: "MiaSampleProductionCheckoutKey")!)
-            return temp
-        }else {
-            return prodCheckoutKeyString
-        }
+        Settings.productionCheckoutKey ?? NetsProduction.checkoutKey
     }
     
     private var testSecretKey: String {
-        if cache.object(forKey: "MiaSampleTestSecretKey") != nil {
-            let temp = String(describing: cache.object(forKey: "MiaSampleTestSecretKey")!)
-            return temp
-        }else {
-            return testSecretKeyString
-        }
+        Settings.testEnvironmentSecretKey ?? NetsTest.secretKey
     }
     
     private var prodSecretKey: String {
-        if cache.object(forKey: "MiaSampleProductionSecretKey") != nil {
-            let temp = String(describing: cache.object(forKey: "MiaSampleProductionSecretKey")!)
-            return temp
-        }else {
-            return prodSecretKeyString
-        }
+        Settings.productionSecretKey ?? NetsProduction.secretKey
     }
     
     // MARK: get credentials and URLs

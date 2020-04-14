@@ -39,7 +39,9 @@ class ProfileViewController: UIViewController,UITextFieldDelegate {
         country.setUpCountryPicker()
         country.contentHorizontalAlignment = .left;
 
-        
+        prefix.placeholder = "+358"
+        phoneNumber.placeholder = "0441234567"
+
         if let profile:Profile = ProfileHelper.shared.getProfile(){
             email.text = profile.email
             firstName.text = profile.firstName

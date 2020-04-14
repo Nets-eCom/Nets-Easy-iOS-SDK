@@ -47,10 +47,7 @@ extension UIViewController {
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true, completion: nil)
-        }
+        present(alertController, animated: true, completion: nil)
     }
     
     func showLeftAlignedAlert(title: String, message: String){
@@ -60,7 +57,8 @@ extension UIViewController {
         let attributedMessage: NSMutableAttributedString = NSMutableAttributedString(
             string: message, // your string message here
             attributes: [
-                NSAttributedString.Key.paragraphStyle: paragraphStyle
+                NSAttributedString.Key.paragraphStyle : paragraphStyle,
+                .font : UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .light)
             ]
         )
 
@@ -68,10 +66,7 @@ extension UIViewController {
         alertController.setValue(attributedMessage, forKey: "attributedMessage")
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true, completion: nil)
-        }
-        
+        present(alertController, animated: true, completion: nil)
     }
     
     func getIPAddress() -> String? {
@@ -114,10 +109,7 @@ extension UIViewController {
     }
     
     func stopServer(){
-        //stop the localhost only if integrationtype is EmbeddedCheckout
-        if(UserDefaults.standard.integer(forKey: "MiaSampleIntegrationType") == CheckoutType.EmbeddedCheckout.rawValue){
-            ServerManager.shared.stop()
-        }
+        ServerManager.shared.stop()
     }
     
     func isValidEmail(emailStr:String) -> Bool {
@@ -139,33 +131,6 @@ extension UIScrollView {
 public func postNotification(name:String) {
     DispatchQueue.main.async {
         NotificationCenter.default.post(name: NSNotification.Name(name), object: nil)
-    }
-}
-
-public func removeAllCredentials() {
-    let cache = Cache()
-    cache.removeObject(forKey: "MiaSampleProductionSecretKey")
-    cache.removeObject(forKey: "MiaSampleProductionCheckoutKey")
-}
-
-public class Cache {
-    // store the user token for later use
-    let userDefaults = UserDefaults.standard
-    
-    func addObject(object: Any, forKey: String) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: object)
-        userDefaults.set(data, forKey: forKey)
-    }
-    
-    func object(forKey: String) -> Any? {
-        if let data = userDefaults.object(forKey: forKey) as? Data {
-            return NSKeyedUnarchiver.unarchiveObject(with: data) ?? nil
-        }
-        return nil
-    }
-    
-    func removeObject(forKey: String) {
-        userDefaults.removeObject(forKey: forKey)
     }
 }
 

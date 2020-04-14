@@ -36,17 +36,6 @@ public enum MiaSamplePickerType {
     case HandlingConsumerData
 }
 
-public enum CheckoutType: Int {
-    case HostedPaymentWindow = 0
-    case EmbeddedCheckout
-}
-
-public enum HandlingConsumerData: Int {
-    case None = 0
-    case InjectAddess
-    case NoShippingMode
-}
-
 class MiaSamplePickerButton: UIButton {
     
     fileprivate let integrationType = ["HostedPaymentPage","EmbeddedCheckout"]
@@ -107,8 +96,8 @@ class MiaSamplePickerButton: UIButton {
         dropDownButton.selectionAction = { (index, item) in
             currentIntegrationType = item
             self.setTitle("\(currentIntegrationType)", for: .normal)
-            UserDefaults.standard.set(index, forKey: "MiaSampleIntegrationType")
-            UserDefaults.standard.synchronize()
+            Settings.integrationType = index == 0 ?
+                IntegrationType.hostedPaymentWindow.rawValue : IntegrationType.embeddedCheckout.rawValue
         }
     }
     
@@ -118,8 +107,13 @@ class MiaSamplePickerButton: UIButton {
         dropDownButton.selectionAction = { (index, item) in
             currentHandlingConsumerDataType = item
             self.setTitle("\(currentHandlingConsumerDataType)", for: .normal)
-            UserDefaults.standard.set(index, forKey: "MiaSampleHandlingConsumerDataType")
-            UserDefaults.standard.synchronize()
+            Settings.handlingConsumerData = {
+                switch index {
+                case 0: return HandlingConsumerData.none.rawValue
+                case 1: return HandlingConsumerData.injectAddress.rawValue
+                default: return HandlingConsumerData.noShippingMode.rawValue
+                }
+            }()
         }
     }
     
@@ -129,6 +123,8 @@ class MiaSamplePickerButton: UIButton {
         self.dropDownButton.dataSource = countryList.filter { $0["country"] != nil }.map { $0["country"] ?? ""}
         if let profile = ProfileHelper.shared.getProfile() {
             self.setTitle("\(profile.country)", for: .normal)
+        } else {
+            setTitle("Norway", for: .normal)
         }
         dropDownButton.selectionAction = { (index, item) in
             self.setTitle("\(item)", for: .normal)

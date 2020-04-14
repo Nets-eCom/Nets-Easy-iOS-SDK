@@ -37,7 +37,7 @@ public class RequestManager {
     
     let constant = Constant()
     
-    func getPaymentId(ipAddress:String, total:Int, currency:String, integrationType:Int, handlingConsumerDataType:Int,
+    func getPaymentId(ipAddress:String, total:Int, currency:String, integrationType: IntegrationType, handlingConsumerDataType: HandlingConsumerData,
          completion: @escaping (_ result: Bool, _ paymentId: String, _ checkoutURL: String, _ errorMsg : String) -> Void) {
         let price = total - 200
         
@@ -52,12 +52,8 @@ public class RequestManager {
         
         let checkoutDict : NSMutableDictionary = [:]
         
-        var profile:Profile?
+        let profile: Profile? = Settings.userProfile
         
-        if let data = UserDefaults.standard.object(forKey: "Profile") as? Data {
-           profile = try? JSONDecoder().decode(Profile.self, from: data)
-        }
-
         /**
          * Create the checkout Dict based on the integration type
          * Refer "https://tech.dibspayment.com/easy/checkout-guide" for more details
@@ -67,19 +63,16 @@ public class RequestManager {
         checkoutDict.setValue(termURL, forKey: "termsUrl")
 
         switch integrationType {
-            case CheckoutType.EmbeddedCheckout.rawValue:
-                 checkoutDict.setValue(constant.embeddedCheckout, forKey: "integrationType")
-                 checkoutDict.setValue(ipAddress, forKey: "url")
-            case CheckoutType.HostedPaymentWindow.rawValue:
-                 checkoutDict.setValue(constant.hostedPaymentPage, forKey: "integrationType")
-                 checkoutDict.setValue(constant.testReturnUrl, forKey: "returnURL")
-            default:
-                break
-                
+        case .embeddedCheckout:
+            checkoutDict.setValue(IntegrationType.embeddedCheckout.rawValue, forKey: "integrationType")
+            checkoutDict.setValue(ipAddress, forKey: "url")
+        case .hostedPaymentWindow:
+            checkoutDict.setValue(IntegrationType.hostedPaymentWindow.rawValue, forKey: "integrationType")
+            checkoutDict.setValue(constant.testReturnUrl, forKey: "returnURL")
         }
         
         switch handlingConsumerDataType {
-            case HandlingConsumerData.InjectAddess.rawValue:
+            case HandlingConsumerData.injectAddress:
                  let country = ProfileHelper.countryList.filter{ $0["country"] == profile?.country}.map{ $0["code"] ?? ""}
                  let consumer : NSDictionary = ["email": profile?.email ?? "",
                                                     "shippingAddress": [
@@ -96,7 +89,7 @@ public class RequestManager {
                                                      "lastName": profile?.lastName ?? ""]]
                  checkoutDict.setValue(consumer, forKey: "consumer")
                  checkoutDict.setValue(true, forKey: "merchantHandlesConsumerData")
-            case HandlingConsumerData.NoShippingMode.rawValue:
+            case HandlingConsumerData.noShippingMode:
                 let consumer : NSDictionary = ["email": profile?.email ?? "",
                                                "shippingAddress": [
                                                    "postalCode": profile?.postalCode ?? ""]]

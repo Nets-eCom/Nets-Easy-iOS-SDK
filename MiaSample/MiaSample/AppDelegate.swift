@@ -53,7 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        removeAllCredentials()
+        Settings.productionSecretKey = nil
+        Settings.productionCheckoutKey = nil
     }
 }
 

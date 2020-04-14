@@ -29,6 +29,53 @@ import UIKit
 import Mia
 import DropDown
 
+enum Settings {
+    @Persisted(.isProductionEnvironment, defaultValue: false)
+    static var isProductionEnvironment: Bool
+    
+    @Persisted(.isChargingPaymentEnabled, defaultValue: false)
+    static var isChargingPaymentEnabled: Bool
+    
+    @Persisted(.integrationType, defaultValue: IntegrationType.hostedPaymentWindow.rawValue)
+    static var integrationType: String
+    
+    @Persisted(.handlingConsumerData, defaultValue: HandlingConsumerData.none.rawValue)
+    static var handlingConsumerData: String
+    
+    static var userProfile: Profile? {
+        get {
+            guard let data = userProfileData else { return nil }
+            return try? JSONDecoder().decode(Profile.self, from: data)
+        }
+        set(profile) {
+            let encoded = try? JSONEncoder().encode(profile)
+            userProfileData = encoded
+        }
+    }
+    
+    @Persisted(.userProfileData, defaultValue: nil)
+    private static var userProfileData: Data?
+    
+    // MARK: Environment Settings
+    
+    @Persisted(.testEnvironmentSecretKey, defaultValue: nil)
+    static var testEnvironmentSecretKey: String?
+    
+    @Persisted(.testCheckoutKey, defaultValue: nil)
+    static var testCheckoutKey: String?
+    
+    @Persisted(.productionCheckoutKey, defaultValue: nil)
+    static var productionCheckoutKey: String?
+    
+    @Persisted(.productionSecretKey, defaultValue: nil)
+    static var productionSecretKey: String?
+    
+    /// Returns persistence key for current environment
+    static var subscriptionsKey: PersistanceKey {
+        isProductionEnvironment ? .productionSubscriptions : .testSubscriptions
+    }
+}
+
 
 class SettingsViewController: UIViewController {
     
@@ -68,6 +115,22 @@ class SettingsViewController: UIViewController {
         postNotification(name: "MiaSampleSideMenu")
     }
     
+    @IBAction func openSubscriptions(_ sender: Any) {
+        let navigationController: UINavigationController = {
+            let subscriptionsViewController = SubscriptionsViewController()
+            subscriptionsViewController.navigationItem.leftBarButtonItems = [
+                UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissPresentedController(_:)))
+            ]
+            return UINavigationController(rootViewController: subscriptionsViewController)
+        }()
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    @objc func dismissPresentedController(_: UIBarButtonItem) {
+        guard presentedViewController != nil else { return }
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func showClearingAlert(_ sender: UIButton) {
         createAlert()
     }
@@ -104,33 +167,29 @@ extension SettingsViewController {
     
     
     fileprivate func addActionForSwitches() {
-        self.productionSwitch.isOn = UserDefaults.standard.bool(forKey: "MiaSampleProductionEnvironment")
+        self.productionSwitch.isOn = Settings.isProductionEnvironment
         self.productionSwitch.addTarget(self, action: #selector(productionSwitchChanged(_:)), for: .valueChanged)
         
-        self.chargePaymentSwitch.isOn = UserDefaults.standard.bool(forKey: "MiaSampleChargePayment")
+        self.chargePaymentSwitch.isOn = Settings.isChargingPaymentEnabled
         self.chargePaymentSwitch.addTarget(self, action: #selector(chargePaymentSwitchChanged(_:)), for: .valueChanged)
     }
     
     fileprivate func setupIntegrationTypeButton() {
-        UserDefaults.standard.set(CheckoutType.HostedPaymentWindow.rawValue, forKey: "MiaSampleIntegrationType")
-        UserDefaults.standard.synchronize()
+        Settings.integrationType = IntegrationType.hostedPaymentWindow.rawValue
         self.integrationTypeSelectionButton.setUpIntegrationTypePicker()
     }
     
     fileprivate func setupHandlineConsumerDataTypeButton() {
-        UserDefaults.standard.set(HandlingConsumerData.None.rawValue, forKey: "MiaSampleHandlingConsumerDataType")
-        UserDefaults.standard.synchronize()
+        Settings.handlingConsumerData = HandlingConsumerData.none.rawValue
         self.handlingConsumetDataSelectionButton.setUpHandlingConsumerDataTypePicker()
     }
     
     @objc fileprivate func productionSwitchChanged(_ urlSwitch: UISwitch) {
-        UserDefaults.standard.set(urlSwitch.isOn, forKey: "MiaSampleProductionEnvironment")
-        UserDefaults.standard.synchronize()
+        Settings.isProductionEnvironment = urlSwitch.isOn
     }
     
     @objc fileprivate func chargePaymentSwitchChanged(_ urlSwitch: UISwitch) {
-        UserDefaults.standard.set(urlSwitch.isOn, forKey: "MiaSampleChargePayment")
-        UserDefaults.standard.synchronize()
+        Settings.isChargingPaymentEnabled = urlSwitch.isOn
     }
     
     fileprivate func createAlert() {
@@ -160,7 +219,6 @@ extension SettingsViewController {
         for cookie in cookies {
             cookieJar.deleteCookie(cookie)
         }
-        UserDefaults.standard.synchronize()
     }
     
     fileprivate func clearProfileData(){
