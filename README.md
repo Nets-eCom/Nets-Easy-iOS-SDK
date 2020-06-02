@@ -1,4 +1,4 @@
-# MiA - EASY iOS SDK v1.1.0
+# MiA - EASY iOS SDK v1.2.0
 
 ![](./Resources/NetsLogo.jpg)
 

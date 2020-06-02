@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>eu.nets.mia.mia-xamarin-ios</id>
+    <version>$version$</version>
+    <title>MiA - Easy iOS SDK</title>
+    <authors>BuildManager-Nets</authors>
+    <owners>Nets Denmark A/S</owners>
+    <licenseUrl>https://github.com/DIBS-Payment-Services/Easy-iOS-SDK</licenseUrl>
+    <projectUrl>https://github.com/DIBS-Payment-Services/Easy-iOS-SDK</projectUrl>
+    <iconUrl>https://github.com/DIBS-Payment-Services/Easy-iOS-SDK/blob/master/Resources/NetsLogo.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      MiA - Easy iOS SDK is a library which facilitates the integration of the Easy Re-direct Checkout in your iOS application.
+    </description>
+    <releaseNotes>See technical documentation for more details</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>Easy Mia Xamarin iOS</tags>
+  </metadata>
+
+  <files>
+        <file src="*.dll" target="lib\Xamarin.iOS10" />
+    </files>
+</package>
