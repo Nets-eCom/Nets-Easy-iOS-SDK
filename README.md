@@ -11,7 +11,7 @@ Additional resources:
 * **Nets Easy technical documentation** can be found [here](https://tech.dibspayment.com/easy).
 * **Nets Easy API documentation** can be found [here](https://tech.dibspayment.com/easy/api).
 * **Nets Easy checkout guide (Re-direct)** can be found [here](https://tech.dibspayment.com/node4555edit/checkout-introduction).
-* **Easy - Android SDK** can be found [here](https://github.com/Nets-mobile-acceptance/Easy-Android-SDK).
+* **Easy - Android SDK** can be found [here](https://github.com/DIBS-Payment-Services/Easy-Android-SDK).
 
 ![](./Resources/mia-demo-ios.gif)
 
@@ -30,7 +30,7 @@ We have provided a sample project, MiaSample, in the repository which is written
 ### Carthage
 * Add the following line to your Cartfile
 ```
-github "Nets-mobile-acceptance/Mia"
+github "DIBS-Payment-Services/Easy-iOS-SDK"
 ```
 
 * Run `carthage update` to get Mia SDK
@@ -40,7 +40,7 @@ github "Nets-mobile-acceptance/Mia"
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`
 
 ### Manual
-* Download/clone this https://github.com/Nets-mobile-acceptance/Easy-iOS-SDK.git to get Mia.framework
+* Download/clone this https://github.com/DIBS-Payment-Services/Easy-iOS-SDK.git to get Mia.framework
 * In your project **TARGET**, navigate to **GENERAL**
 * Drag and drop `Mia.framework` to **Embedded Binaries**
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`
