@@ -6,6 +6,8 @@
 
 MiA - Easy iOS SDK is a library which facilitates the integration of the Easy Re-direct Checkout in your iOS application.
 
+Detailed documentation can be found [here](https://DIBS-Payment-Services.github.io/Easy-iOS-SDK/).
+
 Additional resources:
 
 * **Nets Easy technical documentation** can be found [here](https://tech.dibspayment.com/easy).
