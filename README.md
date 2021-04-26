@@ -1,4 +1,4 @@
-# MiA - EASY iOS SDK v1.2.0
+# MiA - EASY iOS SDK v1.3.0
 
 ![](./Resources/NetsLogo.jpg)
 
@@ -6,7 +6,7 @@
 
 MiA - Easy iOS SDK is a library which facilitates the integration of the Easy Re-direct Checkout in your iOS application.
 
-Detailed documentation can be found [here](https://DIBS-Payment-Services.github.io/Easy-iOS-SDK/).
+Detailed documentation can be found [here](https://dibs-payment-services.github.io/Easy-iOS-SDK/).
 
 Additional resources:
 
@@ -47,6 +47,8 @@ github "DIBS-Payment-Services/Easy-iOS-SDK"
 * Drag and drop `Mia.framework` to **Embedded Binaries**
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`
 
+Xcode 11+ users can now replace Mia.framework in Xcode-Targets Frameworks, Libraries and Embedded Contents with Mia.XCFramework for iOS and iOS Simulator architectures.
+
 ## High level architecture of the Easy SDK
 The below picture illustrates the SDK and its interactions with the macro components of the integration’s environment.
 
@@ -56,17 +58,29 @@ The below picture illustrates the SDK and its interactions with the macro compon
 After setup is ready, using MiA SDK is easy. Initialize and present Mia SDK's checkout controller providing actions for success, cancelation and failure block parameters. The SDK will display a checkout WebView and invoke the action blocks accordingly. For full references, please refer to **Documentation** folder.
 
 ```swift
-let miaCheckoutController = MiaSDK.checkoutControllerForPayment(
-    withID: paymentID,
+let miaSDK = MiaSDK.checkoutControllerForPayment(
+    withID: paymentId,
     paymentURL: paymentURL,
     isEasyHostedWithRedirectURL: easyHostedRedirectURL,
+    cancelURL: cancelURL,
     success: { controller in /* handle success */ },
     cancellation: { controller in /* handle cancellation */ },
     failure: { controller, error in /* handle failure */ }
 )
 
-present(miaCheckoutController, animated: true)
+present(miaSDK, animated: true)
 ```
+
+**IMPORTANT**: While making the API call for creating a payment, make sure you add `"commercePlatformTag" : "iOSSDK"` in the request header. This is critical to identify the platform from which the payment is initiated.
+
+```swift
+let headers: HTTPHeaders = [
+    "Authorization": token,
+    "Content-Type": "application/json",
+    "commercePlatformTag" : "iOSSDK"
+]
+```
+
 
 ## Integration - Run Script
 

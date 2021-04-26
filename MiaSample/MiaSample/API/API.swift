@@ -21,7 +21,8 @@ public class EasyAPI: JSONDecodeDelegate {
         var testKey: String { Settings.testEnvironmentSecretKey ?? NetsTest.secretKey }
         return [
             "Content-Type" : "application/json",
-            "Authorization" : "Token \(Settings.isProductionEnvironment ? productionKey : testKey)"
+            "Authorization" : "Token \(Settings.isProductionEnvironment ? productionKey : testKey)",
+            "commercePlatformTag" : "iOSSDK"
         ]
     }
     

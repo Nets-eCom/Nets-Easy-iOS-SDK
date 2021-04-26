@@ -38,6 +38,7 @@ namespace XamarinMiaSample
         String paymentIdUrl = "EASY_PAYMENTID_URL";
         String secretKey = "YOUR_SECRET_KEY";
         String returnURL = "YOUR_RETURN_URL";
+        String cancelURL = "YOUR_CANCEL_URL";
 
 
         public ViewController(IntPtr handle) : base(handle)
@@ -82,7 +83,7 @@ namespace XamarinMiaSample
         public void presentMiaSDK(string paymentID, String paymentURL)
         {
 
-            MiaCheckoutController miaSDK = MiaSDK.CheckoutControllerForPaymentWithID(paymentID, paymentURL, returnURL,
+            MiaCheckoutController miaSDK = MiaSDK.CheckoutControllerForPaymentWithID(paymentID, paymentURL, returnURL, cancelURL,
                 (controller) => {
                     // success
                     controller.DismissViewController(true, null);
@@ -136,11 +137,11 @@ namespace XamarinMiaSample
                 dateFormat.DateFormat = "yyyy-MM-dd'T'HH:mm:ss";
                 var dateString = dateFormat.ToString(date);
 
-                String data = "{\"subscription\":{\"endDate\":\"{dateString}\",\"interval\":0},\"order\":{\"currency\":\"SEK\",\"amount\":1000,\"reference\":\"MiaSDK-iOS\",\"items\":[{\"unit\":\"pcs\",\"name\":\"Lightning Cable\",\"reference\":\"MiaSDK-iOS\",\"quantity\":1,\"netTotalAmount\":800,\"unitPrice\":800,\"taxRate\":0,\"grossTotalAmount\":800,\"taxAmount\":0},{\"unitPrice\":200,\"quantity\":1,\"grossTotalAmount\":200,\"taxAmount\":0,\"taxRate\":0,\"reference\":\"MiaSDK-iOS\",\"name\":\"Shipping Cost\",\"unit\":\"pcs\",\"netTotalAmount\":200}]},\"checkout\":{\"consumerType\":{\"default\":\"B2C\",\"supportedTypes\":[\"B2C\",\"B2B\"]},\"returnURL\":\"https:\\/\\/127.0.0.1\\/redirect.php\",\"integrationType\":\"HostedPaymentPage\",\"shippingCountries\":[{\"countryCode\":\"SWE\"},{\"countryCode\":\"NOR\"},{\"countryCode\":\"DNK\"}],\"termsUrl\":\"http:\\/\\/localhost:8080\\/terms\"}}";
+                String data = "{\"subscription\":{\"endDate\":\"{dateString}\",\"interval\":0},\"order\":{\"currency\":\"SEK\",\"amount\":1000,\"reference\":\"MiaSDK-iOS\",\"items\":[{\"unit\":\"pcs\",\"name\":\"Lightning Cable\",\"reference\":\"MiaSDK-iOS\",\"quantity\":1,\"netTotalAmount\":800,\"unitPrice\":800,\"taxRate\":0,\"grossTotalAmount\":800,\"taxAmount\":0},{\"unitPrice\":200,\"quantity\":1,\"grossTotalAmount\":200,\"taxAmount\":0,\"taxRate\":0,\"reference\":\"MiaSDK-iOS\",\"name\":\"Shipping Cost\",\"unit\":\"pcs\",\"netTotalAmount\":200}]},\"checkout\":{\"consumerType\":{\"default\":\"B2C\",\"supportedTypes\":[\"B2C\",\"B2B\"]},\"returnURL\":\"https:\\/\\/127.0.0.1\\/redirect.php\",\"cancelURL\":\"https:\\/\\/127.0.0.1\\/cancel.php\",\"integrationType\":\"HostedPaymentPage\",\"shippingCountries\":[{\"countryCode\":\"SWE\"},{\"countryCode\":\"NOR\"},{\"countryCode\":\"DNK\"}],\"termsUrl\":\"http:\\/\\/localhost:8080\\/terms\"}}";
 
                 request.Body = data.Replace("{dateString}", dateString);
             } else {
-                request.Body = "{\"order\":{\"currency\":\"SEK\",\"amount\":1000,\"reference\":\"MiaSDK-iOS\",\"items\":[{\"unit\":\"pcs\",\"name\":\"Lightning Cable\",\"reference\":\"MiaSDK-iOS\",\"quantity\":1,\"netTotalAmount\":800,\"unitPrice\":800,\"taxRate\":0,\"grossTotalAmount\":800,\"taxAmount\":0},{\"unitPrice\":200,\"quantity\":1,\"grossTotalAmount\":200,\"taxAmount\":0,\"taxRate\":0,\"reference\":\"MiaSDK-iOS\",\"name\":\"Shipping Cost\",\"unit\":\"pcs\",\"netTotalAmount\":200}]},\"checkout\":{\"consumerType\":{\"default\":\"B2C\",\"supportedTypes\":[\"B2C\",\"B2B\"]},\"returnURL\":\"https:\\/\\/127.0.0.1\\/redirect.php\",\"integrationType\":\"HostedPaymentPage\",\"shippingCountries\":[{\"countryCode\":\"SWE\"},{\"countryCode\":\"NOR\"},{\"countryCode\":\"DNK\"}],\"termsUrl\":\"http:\\/\\/localhost:8080\\/terms\"}}";
+                request.Body = "{\"order\":{\"currency\":\"SEK\",\"amount\":1000,\"reference\":\"MiaSDK-iOS\",\"items\":[{\"unit\":\"pcs\",\"name\":\"Lightning Cable\",\"reference\":\"MiaSDK-iOS\",\"quantity\":1,\"netTotalAmount\":800,\"unitPrice\":800,\"taxRate\":0,\"grossTotalAmount\":800,\"taxAmount\":0},{\"unitPrice\":200,\"quantity\":1,\"grossTotalAmount\":200,\"taxAmount\":0,\"taxRate\":0,\"reference\":\"MiaSDK-iOS\",\"name\":\"Shipping Cost\",\"unit\":\"pcs\",\"netTotalAmount\":200}]},\"checkout\":{\"consumerType\":{\"default\":\"B2C\",\"supportedTypes\":[\"B2C\",\"B2B\"]},\"returnURL\":\"https:\\/\\/127.0.0.1\\/redirect.php\",\"cancelURL\":\"https:\\/\\/127.0.0.1\\/cancel.php\",\"integrationType\":\"HostedPaymentPage\",\"shippingCountries\":[{\"countryCode\":\"SWE\"},{\"countryCode\":\"NOR\"},{\"countryCode\":\"DNK\"}],\"termsUrl\":\"http:\\/\\/localhost:8080\\/terms\"}}";
             }
             request.HttpMethod = "POST";
             request.Headers = dictionary;

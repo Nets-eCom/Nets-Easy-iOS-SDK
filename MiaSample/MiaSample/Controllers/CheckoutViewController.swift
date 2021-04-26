@@ -46,7 +46,7 @@ class CheckoutViewController: UIViewController {
     
     fileprivate var urlString = ""
     
-    fileprivate let currencies = ["SEK", "DKK", "NOK"]
+    fileprivate let currencies = ["SEK", "DKK", "NOK", "EUR"]
     
     fileprivate var currencyCode: String {
         return currencyPicker.currencyCode
@@ -192,6 +192,7 @@ extension CheckoutViewController {
                                 withID: paymentId,
                                 paymentURL: paymentURL,
                                 isEasyHostedWithRedirectURL: easyHostedRedirectURL,
+                                cancelURL: Constant().testCancelUrl,
                                 success: success,
                                 cancellation: cancellation,
                                 failure: failure

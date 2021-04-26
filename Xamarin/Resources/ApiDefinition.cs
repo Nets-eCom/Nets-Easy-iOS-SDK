@@ -73,20 +73,29 @@ namespace XamarinMia
     [BaseType(typeof(UIViewController))]
     interface MiaCheckoutController
     {
-        // +(MiaCheckoutController * _Nonnull)makeWithPaymentID:(NSString * _Nonnull)paymentID paymentURL:(NSString * _Nonnull)paymentURL redirectURL:(NSString * _Nonnull)redirectURL success:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))success cancellation:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))cancellation failure:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull, NSError * _Nonnull))failure;
+        // +(MiaCheckoutController * _Nonnull)makeWithPaymentID:(NSString * _Nonnull)paymentID paymentURL:(NSString * _Nonnull)paymentURL redirectURL:(NSString * _Nullable)redirectURL cancelURL:(NSString * _Nullable)cancelURL success:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))success cancellation:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))cancellation failure:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull, NSError * _Nonnull))failure;
         [Static]
-        [Export("makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:")]
-        MiaCheckoutController MakeWithPaymentID(string paymentID, string paymentURL, string redirectURL, Action<MiaCheckoutController> success, Action<MiaCheckoutController> cancellation, Action<MiaCheckoutController, NSError> failure);
+        [Export("makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:")]
+        MiaCheckoutController MakeWithPaymentID(string paymentID, string paymentURL, [NullAllowed] string redirectURL, [NullAllowed] string cancelURL, Action<MiaCheckoutController> success, Action<MiaCheckoutController> cancellation, Action<MiaCheckoutController, NSError> failure);
     }
+
+
 
     // @interface MiaSDK : NSObject
     [BaseType(typeof(NSObject))]
     interface MiaSDK
     {
-        // +(MiaCheckoutController * _Nonnull)checkoutControllerForPaymentWithID:(NSString * _Nonnull)paymentID paymentURL:(NSString * _Nonnull)paymentURL isEasyHostedWithRedirectURL:(NSString * _Nullable)redirectURL success:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))success cancellation:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))cancellation failure:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull, NSError * _Nonnull))failure;
+
+        // +(MiaCheckoutController * _Nonnull)checkoutControllerForPaymentWithID:(NSString * _Nonnull)paymentID paymentURL:(NSString * _Nonnull)paymentURL isEasyHostedWithRedirectURL:(NSString * _Nullable)redirectURL success:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))success cancellation:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))cancellation failure:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull, NSError * _Nonnull))failure __attribute__((deprecated("Use checkoutControllerForPaymentWithID:paymentURL:isEasyHostedWithRedirectURL:cancelURL:success:cancellation:failure instead")));
         [Static]
         [Export("checkoutControllerForPaymentWithID:paymentURL:isEasyHostedWithRedirectURL:success:cancellation:failure:")]
         MiaCheckoutController CheckoutControllerForPaymentWithID(string paymentID, string paymentURL, [NullAllowed] string redirectURL, Action<MiaCheckoutController> success, Action<MiaCheckoutController> cancellation, Action<MiaCheckoutController, NSError> failure);
+
+        // +(MiaCheckoutController * _Nonnull)checkoutControllerForPaymentWithID:(NSString * _Nonnull)paymentID paymentURL:(NSString * _Nonnull)paymentURL isEasyHostedWithRedirectURL:(NSString * _Nullable)redirectURL cancelURL:(NSString * _Nullable)cancelURL success:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))success cancellation:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull))cancellation failure:(void (^ _Nonnull)(MiaCheckoutController * _Nonnull, NSError * _Nonnull))failure;
+        [Static]
+        [Export("checkoutControllerForPaymentWithID:paymentURL:isEasyHostedWithRedirectURL:cancelURL:success:cancellation:failure:")]
+        MiaCheckoutController CheckoutControllerForPaymentWithID(string paymentID, string paymentURL, [NullAllowed] string redirectURL, [NullAllowed] string cancelURL, Action<MiaCheckoutController> success, Action<MiaCheckoutController> cancellation, Action<MiaCheckoutController, NSError> failure);
     }
+
 }
 

@@ -10,7 +10,7 @@
     {
       "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/Controllers/MiaCheckoutController.h",
       "line": 55,
-      "symbol": "MiaCheckoutController.+makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:",
+      "symbol": "MiaCheckoutController.+makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },

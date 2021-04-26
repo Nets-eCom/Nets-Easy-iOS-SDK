@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Mia Docs
         </a>
-         (37% documented)
+         (44% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -106,20 +106,27 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>MiaCheckoutController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">MiaCheckoutController</span> <span class="p">:</span> <span class="nc">UIViewController</span>
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MiaCheckoutController</span> <span class="p">:</span> <span class="nc">UIViewController</span>
 
 <span class="k">+</span> <span class="p">(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">)</span><span class="nf">makeWithPaymentID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
                                   <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
-                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                   <span class="nf">cancelURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">cancelURL</span>
                                      <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
                                 <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
                                      <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MiaCheckoutController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -135,9 +142,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:"></a>
-                    <a name="//apple_ref/objc/Method/+makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:">+makeWithPaymentID:paymentURL:redirectURL:success:cancellation:failure:</a>
+                    <a name="/c:objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:"></a>
+                    <a name="//apple_ref/objc/Method/+makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:">+makeWithPaymentID:<wbr>paymentURL:<wbr>redirectURL:<wbr>cancelURL:<wbr>success:<wbr>cancellation:<wbr>failure:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -152,9 +159,10 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">)</span><span class="nf">makeWithPaymentID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">)</span><span class="nf">makeWithPaymentID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
                                   <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
-                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                   <span class="nf">cancelURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">cancelURL</span>
                                      <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
                                 <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
                                      <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
@@ -162,7 +170,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">make</span><span class="p">(</span><span class="n">withPaymentID</span> <span class="nv">paymentID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">paymentURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">redirectURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">cancellation</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MiaCheckoutController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">make</span><span class="p">(</span><span class="n">withPaymentID</span> <span class="nv">paymentID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">paymentURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">redirectURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">cancelURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">cancellation</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">MiaCheckoutController</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MiaCheckoutController</span></code></pre>
 
                         </div>
                       </div>
@@ -177,8 +185,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2020-06-02)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-04-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

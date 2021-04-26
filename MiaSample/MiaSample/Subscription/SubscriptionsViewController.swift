@@ -138,6 +138,7 @@ class SubscriptionsViewController: UITableViewController {
             withID: payment.paymentId,
             paymentURL: payment.hostedPaymentPageUrl,
             isEasyHostedWithRedirectURL: Constant().testReturnUrl,
+            cancelURL: Constant().testCancelUrl,
             success: success,
             cancellation: cancellation,
             failure: failure

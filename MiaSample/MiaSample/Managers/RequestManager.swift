@@ -45,7 +45,8 @@ public class RequestManager {
         
         let headers: HTTPHeaders = [
             "Authorization": token,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "commercePlatformTag" : "iOSSDK"
         ]
         
         let termURL = "http://localhost:8080/terms"
@@ -66,9 +67,12 @@ public class RequestManager {
         case .embeddedCheckout:
             checkoutDict.setValue(IntegrationType.embeddedCheckout.rawValue, forKey: "integrationType")
             checkoutDict.setValue(ipAddress, forKey: "url")
+            checkoutDict.setValue(constant.testCancelUrl, forKey: "cancelURL")
         case .hostedPaymentWindow:
             checkoutDict.setValue(IntegrationType.hostedPaymentWindow.rawValue, forKey: "integrationType")
             checkoutDict.setValue(constant.testReturnUrl, forKey: "returnURL")
+            checkoutDict.setValue(constant.testCancelUrl, forKey: "cancelURL")
+
         }
         
         switch handlingConsumerDataType {
@@ -157,7 +161,8 @@ public class RequestManager {
         
         let headers: HTTPHeaders = [
             "Authorization": token,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "commercePlatformTag" : "iOSSDK"
         ]
         
         let parameters: Parameters = ["amount": total,
@@ -205,7 +210,8 @@ public class RequestManager {
         
         let headers: HTTPHeaders = [
             "Authorization": token,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "commercePlatformTag" : "iOSSDK"
         ]
         
         let parameters: Parameters = ["amount": total,
@@ -250,7 +256,8 @@ public class RequestManager {
 
         let headers: HTTPHeaders = [
             "Authorization": token,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "commercePlatformTag" : "iOSSDK"
         ]
         
         let link = constant.getBaseURL() + "/v1/payments/\(paymentId)"

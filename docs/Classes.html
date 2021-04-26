@@ -14,6 +14,7 @@
   </head>
   <body>
 
+    <a name="//apple_ref/objc/Section/Classes" class="dashAnchor"></a>
 
     <a title="Classes  Reference"></a>
 
@@ -22,7 +23,7 @@
         <a class="header-link" href="index.html">
           Mia Docs
         </a>
-         (37% documented)
+         (44% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -105,7 +106,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Classes</h1>
             <p>The following classes are available globally.</p>
 
@@ -137,11 +138,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">MiaCheckoutController</span> <span class="p">:</span> <span class="nc">UIViewController</span>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MiaCheckoutController</span> <span class="p">:</span> <span class="nc">UIViewController</span>
 
 <span class="k">+</span> <span class="p">(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">)</span><span class="nf">makeWithPaymentID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
                                   <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
-                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                 <span class="nf">redirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                   <span class="nf">cancelURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">cancelURL</span>
                                      <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
                                 <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
                                      <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MiaCheckoutController</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
@@ -151,17 +153,13 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MiaCheckoutController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MiaCheckoutController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -183,24 +181,48 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">MiaSDK</span> <span class="p">:</span> <span class="nc">NSObject</span>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MiaSDK</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="c1">/// Returns a view controller that hosts checkout web view.
-/// Pass a `redirectURL` iff Easy-hosted web view is presented.
-///
-/// Merchant-hosted payment does not require a `redirectURL`.
-/// Pass `nil` `redirectURL` for merchant-hosted payment.
-///
-/// @param paymentID Payment ID
-/// @param paymentURL Payment URL
-/// @param redirectURL The URL used to redirect from Easy hosted web view
-/// @param success Success
-/// @param cancellation Cancellation
-/// @param failure Failure
-///
-</span><span class="k">+</span> <span class="p">(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">checkoutControllerForPaymentWithID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
+<span class="c1">/// Returns a view controller that hosts checkout web view.</span>
+<span class="c1">/// Pass a `redirectURL` iff Easy-hosted web view is presented.</span>
+<span class="c1">///</span>
+<span class="c1">/// Merchant-hosted payment does not require a `redirectURL`.</span>
+<span class="c1">/// Pass `nil` `redirectURL` for merchant-hosted payment.</span>
+<span class="c1">///</span>
+<span class="c1">/// @param paymentID Payment ID</span>
+<span class="c1">/// @param paymentURL Payment URL</span>
+<span class="c1">/// @param redirectURL The URL used to redirect from Easy hosted web view</span>
+<span class="c1">/// @param success Success</span>
+<span class="c1">/// @param cancellation Cancellation</span>
+<span class="c1">/// @param failure Failure</span>
+<span class="c1">///</span>
+<span class="k">+</span> <span class="p">(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">checkoutControllerForPaymentWithID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
                                                    <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
                                   <span class="nf">isEasyHostedWithRedirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                                      <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
+                                                 <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
+                                                      <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span>
+<span class="n">__deprecated_msg</span><span class="p">(</span><span class="s">"Use checkoutControllerForPaymentWithID:paymentURL:isEasyHostedWithRedirectURL:cancelURL:success:cancellation:failure instead"</span><span class="p">);</span>
+
+
+<span class="c1">/// Returns a view controller that hosts checkout web view.</span>
+<span class="c1">/// Pass a `redirectURL` iff Easy-hosted web view is presented.</span>
+<span class="c1">///</span>
+<span class="c1">/// Merchant-hosted payment does not require a `redirectURL`.</span>
+<span class="c1">/// Pass `nil` `redirectURL` for merchant-hosted payment.</span>
+<span class="c1">///</span>
+<span class="c1">/// @param paymentID Payment ID</span>
+<span class="c1">/// @param paymentURL Payment URL</span>
+<span class="c1">/// @param redirectURL The URL used to redirect from Easy hosted web view</span>
+<span class="c1">/// @param cancelURL The URL used to redirect when user cancels the transaction</span>
+<span class="c1">/// @param success Success</span>
+<span class="c1">/// @param cancellation Cancellation</span>
+<span class="c1">/// @param failure Failure</span>
+<span class="c1">///</span>
+<span class="k">+</span> <span class="p">(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">checkoutControllerForPaymentWithID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentID</span>
+                                                   <span class="nf">paymentURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentURL</span>
+                                  <span class="nf">isEasyHostedWithRedirectURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">redirectURL</span>
+                                                    <span class="nf">cancelURL</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">cancelURL</span>
                                                       <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">))</span><span class="nv">success</span>
                                                  <span class="nf">cancellation</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">))</span><span class="nv">cancellation</span>
                                                       <span class="nf">failure</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="Classes/MiaCheckoutController.html">MiaCheckoutController</a></span> <span class="o">*</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
@@ -211,7 +233,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MiaSDK</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MiaSDK</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -226,8 +248,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2020-06-02)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-04-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -43,6 +43,9 @@ class Constant {
     let prodBaseURL = "https://api.dibspayment.eu"
     
     let testReturnUrl = "https://127.0.0.1/redirect.php"
+    
+    let testCancelUrl = "https://127.0.0.1/cancel.php"
+
         
     // MARK: private variables
     private var testCheckoutKey: String {
