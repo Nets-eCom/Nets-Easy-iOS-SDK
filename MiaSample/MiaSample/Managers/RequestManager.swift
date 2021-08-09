@@ -67,7 +67,6 @@ public class RequestManager {
         case .embeddedCheckout:
             checkoutDict.setValue(IntegrationType.embeddedCheckout.rawValue, forKey: "integrationType")
             checkoutDict.setValue(ipAddress, forKey: "url")
-            checkoutDict.setValue(constant.testCancelUrl, forKey: "cancelURL")
         case .hostedPaymentWindow:
             checkoutDict.setValue(IntegrationType.hostedPaymentWindow.rawValue, forKey: "integrationType")
             checkoutDict.setValue(constant.testReturnUrl, forKey: "returnURL")
