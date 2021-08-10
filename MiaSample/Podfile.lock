@@ -6,9 +6,6 @@ PODS:
     - Fabric (~> 1.8.1)
   - DropDown (2.3.13)
   - Fabric (1.8.2)
-  - GCDWebServer (3.4.2):
-    - GCDWebServer/Core (= 3.4.2)
-  - GCDWebServer/Core (3.4.2)
   - IQKeyboardManagerSwift (6.2.0)
   - SwiftyJSON (4.2.0)
 
@@ -18,7 +15,6 @@ DEPENDENCIES:
   - Crashlytics
   - DropDown (~> 2.3.2)
   - Fabric
-  - GCDWebServer (~> 3.0)
   - IQKeyboardManagerSwift
   - SwiftyJSON (~> 4.0)
 
@@ -29,7 +25,6 @@ SPEC REPOS:
     - Crashlytics
     - DropDown
     - Fabric
-    - GCDWebServer
     - IQKeyboardManagerSwift
     - SwiftyJSON
 
@@ -39,10 +34,9 @@ SPEC CHECKSUMS:
   Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
-  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 11973faa1268ba22c79e55f1a96161a216d5cb1a
+PODFILE CHECKSUM: 516c3c9b6ec34419c33985f32c9640a4062e7ba8
 
 COCOAPODS: 1.10.0

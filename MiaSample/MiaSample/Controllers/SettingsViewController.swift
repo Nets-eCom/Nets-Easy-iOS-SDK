@@ -36,9 +36,6 @@ enum Settings {
     @Persisted(.isChargingPaymentEnabled, defaultValue: false)
     static var isChargingPaymentEnabled: Bool
     
-    @Persisted(.integrationType, defaultValue: IntegrationType.hostedPaymentWindow.rawValue)
-    static var integrationType: String
-    
     @Persisted(.handlingConsumerData, defaultValue: HandlingConsumerData.none.rawValue)
     static var handlingConsumerData: String
     
@@ -87,7 +84,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var chargePaymentSwitch: UISwitch!
     
     @IBOutlet weak var chargePaymentStackView: UIStackView!
-    @IBOutlet weak var integrationTypeSelectionButton: MiaSamplePickerButton!
     @IBOutlet weak var handlingConsumetDataSelectionButton: MiaSamplePickerButton!
 
     
@@ -98,14 +94,12 @@ class SettingsViewController: UIViewController {
         addShadow()
         showApplicationVersion()
         addActionForSwitches()
-        setupIntegrationTypeButton()
         setupHandlineConsumerDataTypeButton()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        integrationTypeSelectionButton.updateDropDownButton(with: .IntegrationType)
     }
     
     
@@ -172,11 +166,6 @@ extension SettingsViewController {
         
         self.chargePaymentSwitch.isOn = Settings.isChargingPaymentEnabled
         self.chargePaymentSwitch.addTarget(self, action: #selector(chargePaymentSwitchChanged(_:)), for: .valueChanged)
-    }
-    
-    fileprivate func setupIntegrationTypeButton() {
-        Settings.integrationType = IntegrationType.hostedPaymentWindow.rawValue
-        self.integrationTypeSelectionButton.setUpIntegrationTypePicker()
     }
     
     fileprivate func setupHandlineConsumerDataTypeButton() {

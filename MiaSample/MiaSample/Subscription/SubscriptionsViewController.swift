@@ -112,7 +112,6 @@ class SubscriptionsViewController: UITableViewController {
     
     private func presentMiaCheckout(_ payment: SubscriptionRegistration) {
         let success: (MiaCheckoutController) -> Void = { controller in
-            self.stopServer()
             controller.dismiss(animated: true) {
                 self.api.fetchSubscriptionPayment(
                     paymentID: payment.paymentId,
@@ -123,12 +122,10 @@ class SubscriptionsViewController: UITableViewController {
         }
 
         let cancellation: (MiaCheckoutController) -> Void = { controller in
-            self.stopServer()
             controller.dismiss(animated: true)
         }
 
         let failure: (MiaCheckoutController, Error) -> Void = { controller, error in
-            self.stopServer()
             controller.dismiss(animated: true) {
                 self.showAlert(title: "Error", message: error.localizedDescription)
             }
@@ -143,9 +140,6 @@ class SubscriptionsViewController: UITableViewController {
             cancellation: cancellation,
             failure: failure
         )
-        
-        // Start server to host embedded checkout and/or terms-and-conditions page
-        ServerManager.shared.start(paymentId: payment.paymentId)
         
         present(miaCheckoutController, animated: true, completion: nil)
     }

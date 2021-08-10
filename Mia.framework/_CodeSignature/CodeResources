@@ -22,15 +22,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		moDK0J6+8bz/EvihoeXROZLLIGs=
+		ppny0+BBZGDNNfZIoo+JfdQPHIg=
 		</data>
 		<key>MIAMain.storyboardc/I7P-HK-2Dp-view-7yP-id-rFz.nib/objects-11.0+.nib</key>
 		<data>
-		Tk+smQGgIk/5Fzbc6XGuRQ3O/LY=
+		xotdWiEuWESeRTc0k0XuALU//as=
 		</data>
 		<key>MIAMain.storyboardc/I7P-HK-2Dp-view-7yP-id-rFz.nib/runtime.nib</key>
 		<data>
-		cQMdEEw1e01hGD0nJk6k1EbDNDI=
+		BAjcWnT2ptW35kArKkItdOKoikU=
 		</data>
 		<key>MIAMain.storyboardc/Info.plist</key>
 		<data>
@@ -38,35 +38,35 @@
 		</data>
 		<key>MIAMain.storyboardc/MIACheckoutController.nib/objects-11.0+.nib</key>
 		<data>
-		6ByTOAT/w8zxixKy1lA6ZDgX0R0=
+		X8dsSDA63JAb94MmkcruwP+lOn0=
 		</data>
 		<key>MIAMain.storyboardc/MIACheckoutController.nib/runtime.nib</key>
 		<data>
-		5x9yl8jnW9Xh70ai2i1HIhGrf+o=
+		VqZ1BQyk/WvuqfgPqHyCT9H0nx0=
 		</data>
 		<key>MIAMain.storyboardc/MIALoader.nib/objects-11.0+.nib</key>
 		<data>
-		0y1fLIsfM4HEGAfgFWfOM7Gll/w=
+		ZHtRpyq5wZh5qQLjB7SyGu9REI0=
 		</data>
 		<key>MIAMain.storyboardc/MIALoader.nib/runtime.nib</key>
 		<data>
-		U+LOD5RXU8w+l6Y3dPnfar+5PGU=
+		1AFf1TemL2er9jxe2jolH7sNjp4=
 		</data>
 		<key>MIAMain.storyboardc/MiaSDK.nib/objects-11.0+.nib</key>
 		<data>
-		WNYBa4Sb5iQ1ocBB8rKXv7DIBCU=
+		FlPY0/rBB05jB55+kCgoVJzGCew=
 		</data>
 		<key>MIAMain.storyboardc/MiaSDK.nib/runtime.nib</key>
 		<data>
-		pU7te6uXICYiT2V0fQHWzVv/nAc=
+		BNfF++0SO3oa6rA0pQo8d3SyEB0=
 		</data>
 		<key>MIAMain.storyboardc/eNi-kD-5Au-view-3Iq-uj-DGA.nib/objects-11.0+.nib</key>
 		<data>
-		NMd8AES5NSBI1FZsUZ5ZS+WWpo8=
+		PKKQyDP57PwpHSNuVnNEQlesIlY=
 		</data>
 		<key>MIAMain.storyboardc/eNi-kD-5Au-view-3Iq-uj-DGA.nib/runtime.nib</key>
 		<data>
-		QTpYKxHicQ8PtfXym31qVpjEbMc=
+		CRe4M/HKD96j1q9j8ZK6UW/6Nrs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -127,22 +127,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Tk+smQGgIk/5Fzbc6XGuRQ3O/LY=
+			xotdWiEuWESeRTc0k0XuALU//as=
 			</data>
 			<key>hash2</key>
 			<data>
-			7on5j4glz5wBAHuM1zP9rpMRA1i49R6ES6czblfZyOk=
+			vq4PC8pSK/52mmnipZ7P6xwwaGUjgSsn4ogqQTMy/GQ=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/I7P-HK-2Dp-view-7yP-id-rFz.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cQMdEEw1e01hGD0nJk6k1EbDNDI=
+			BAjcWnT2ptW35kArKkItdOKoikU=
 			</data>
 			<key>hash2</key>
 			<data>
-			JYaCJFSl5gJ7QqSvtmrURbsM3JgFsLT2b+MoIlkM6Ps=
+			XTBQ7FxrZFaFGFNYUxYKZURTCHDbPEv3Y9HjXXoW4fU=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/Info.plist</key>
@@ -160,88 +160,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6ByTOAT/w8zxixKy1lA6ZDgX0R0=
+			X8dsSDA63JAb94MmkcruwP+lOn0=
 			</data>
 			<key>hash2</key>
 			<data>
-			aGJYF/EfZYjVRiYMkWSBwEF5m8h24YwBqeDcerQcng8=
+			dn3d1uUxQBjXKS/JOTl8+j+goW9WcVU6ZGi6A8zt008=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/MIACheckoutController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5x9yl8jnW9Xh70ai2i1HIhGrf+o=
+			VqZ1BQyk/WvuqfgPqHyCT9H0nx0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pne8oR/d8U0k5dkk0Mv0XA1aOkY3qKw6QqmhQ9/xVBs=
+			R6vsIqR4pvSEafmQJpRsO4E2jZnMamLrwcdiU63N5Mg=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/MIALoader.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0y1fLIsfM4HEGAfgFWfOM7Gll/w=
+			ZHtRpyq5wZh5qQLjB7SyGu9REI0=
 			</data>
 			<key>hash2</key>
 			<data>
-			rBNwV2Q3woRMLcxlSYwE4rFa9fri/LxRpRC7To1KlL4=
+			6bYyXygCqdIch+i6pqLP0tHq7LLg28tGwVJMnUyNToM=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/MIALoader.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			U+LOD5RXU8w+l6Y3dPnfar+5PGU=
+			1AFf1TemL2er9jxe2jolH7sNjp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			c8727+PehkHPAHxYxK135OKQxMPxDLi2uwod3MY1Cwk=
+			3ylspHK3YK1I73gSlXZbk3n/Gn7osDAOeaoEGlVi5Ao=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/MiaSDK.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WNYBa4Sb5iQ1ocBB8rKXv7DIBCU=
+			FlPY0/rBB05jB55+kCgoVJzGCew=
 			</data>
 			<key>hash2</key>
 			<data>
-			BcB4/9u2ve/+j9opR9bbmoWwIAtY0BPdVkFv8brtq5U=
+			OlyQIhaBRY3B/Tyy9kHvrzhELjaZDVZgoZFKqQITP+I=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/MiaSDK.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pU7te6uXICYiT2V0fQHWzVv/nAc=
+			BNfF++0SO3oa6rA0pQo8d3SyEB0=
 			</data>
 			<key>hash2</key>
 			<data>
-			4//H783H9gZ2XbCKR2WT6QcL5bYb2H6cJw5JfzWrYug=
+			Kl6wySbvp3HxU9jPqmPHhouSGuRURCefj4GiQMelETQ=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/eNi-kD-5Au-view-3Iq-uj-DGA.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NMd8AES5NSBI1FZsUZ5ZS+WWpo8=
+			PKKQyDP57PwpHSNuVnNEQlesIlY=
 			</data>
 			<key>hash2</key>
 			<data>
-			gXoAf/Tpm9JhQh+Nr06uZZonBFhN9OZmi501cfCbkEM=
+			3+MHRKurtKSZ5bGt+FGpuOqqYvGDufuoKh3Iu8u64xc=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/eNi-kD-5Au-view-3Iq-uj-DGA.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QTpYKxHicQ8PtfXym31qVpjEbMc=
+			CRe4M/HKD96j1q9j8ZK6UW/6Nrs=
 			</data>
 			<key>hash2</key>
 			<data>
-			/e/ixb2v654g9ApkMCVET+/RPkoryhS9i3jMctXiMZo=
+			rn1egGv9gN2NoiJL2falggPLKmDahZ1D5KI1qj6qxVw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

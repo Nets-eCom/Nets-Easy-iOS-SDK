@@ -32,13 +32,11 @@ var currentIntegrationType = "HostedPaymentPage"
 var currentHandlingConsumerDataType = "None"
 
 public enum MiaSamplePickerType {
-    case IntegrationType
     case HandlingConsumerData
 }
 
 class MiaSamplePickerButton: UIButton {
     
-    fileprivate let integrationType = ["HostedPaymentPage","EmbeddedCheckout"]
     fileprivate let handlingConsumerData = ["None","Injected by merchant","No Shipping address"]
 
     fileprivate var dropDownButton = DropDown()
@@ -51,11 +49,6 @@ class MiaSamplePickerButton: UIButton {
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor.gray.cgColor
         self.setUpGenericDropDownButton()
-    }
-    
-    func setUpIntegrationTypePicker() {
-        self.setTitleColor(UIColor(red: 41/255, green: 134/255, blue: 255/255, alpha: 1), for: .normal)
-        self.setUpDropDownButtonWithIntegrationType()
     }
     
     func setUpHandlingConsumerDataTypePicker() {
@@ -72,8 +65,6 @@ class MiaSamplePickerButton: UIButton {
         var tempIndex = 0
         
         switch type {
-            case .IntegrationType:
-                tempIndex = self.integrationType.firstIndex(of: currentIntegrationType) ?? 0
             case .HandlingConsumerData:
                 tempIndex = self.handlingConsumerData.firstIndex(of: currentHandlingConsumerDataType) ?? 0
         }
@@ -88,17 +79,6 @@ class MiaSamplePickerButton: UIButton {
         DropDown.appearance().backgroundColor = .white
         DropDown.appearance().cornerRadius = 10
         DropDown.appearance().selectionBackgroundColor = UIColor.lightGray
-    }
-    
-    fileprivate func setUpDropDownButtonWithIntegrationType() {
-        self.dropDownButton.dataSource = self.integrationType
-        self.setTitle("\(currentIntegrationType) ", for: .normal)
-        dropDownButton.selectionAction = { (index, item) in
-            currentIntegrationType = item
-            self.setTitle("\(currentIntegrationType)", for: .normal)
-            Settings.integrationType = index == 0 ?
-                IntegrationType.hostedPaymentWindow.rawValue : IntegrationType.embeddedCheckout.rawValue
-        }
     }
     
     fileprivate func setUpDropDownButtonWithHandlindDataType() {

@@ -42,9 +42,9 @@ class Constant {
     let testBaseURL = "https://test.api.dibspayment.eu"
     let prodBaseURL = "https://api.dibspayment.eu"
     
-    let testReturnUrl = "https://127.0.0.1/redirect.php"
+    let testReturnUrl = "eu.nets.mia.sample://miasdk"
     
-    let testCancelUrl = "https://127.0.0.1/cancel.php"
+    let testCancelUrl = "eu.nets.mia.sample://miasdk"
 
         
     // MARK: private variables

@@ -37,13 +37,14 @@ extension EasyAPI {
     /// An _Easy API_ type for `checkout` containing merchant and consumer details
     /// Default and cached values are set for simplicity
     struct Checkout: Encodable {
-        let integrationType = IntegrationType.cached.rawValue
+        let integrationType = "HostedPaymentPage"
         let merchantHandlesConsumerData = (HandlingConsumerData.cached != .none)
         let consumer: Consumer? = HandlingConsumerData.cached.consumer
         let charge: Bool = true
 
         let termsUrl = "http://localhost:8080/terms",
-        returnURL = "https://127.0.0.1/redirect.php",
+            returnURL = Constant().testReturnUrl,
+            cancelURL = Constant().testCancelUrl,
         consumerType = ConsumerType()
         
         struct ConsumerType: Encodable {
@@ -80,15 +81,15 @@ struct SubscriptionRequest: Encodable {
     }
     
     struct Shipping: Codable {
-        let countries: [String] = []
-        let merchantHandlesShippingCost: Bool = false
+        var countries: [String] = []
+        var merchantHandlesShippingCost: Bool = false
     }
     
     struct Subscription: Codable {
-        let endDate: String = DateFormatter.easyAPIFormatted(
+        var endDate: String = DateFormatter.easyAPIFormatted(
             Date(timeIntervalSinceNow: (3 * 12 * 30) * 24 * 3600) // Roughly now + 3 years
         )
-        let interval: Int = 0
+        var interval: Int = 0
     }
 
 }

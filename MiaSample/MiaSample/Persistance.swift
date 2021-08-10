@@ -13,7 +13,6 @@ import Foundation
 enum PersistanceKey: String {
     case isProductionEnvironment = "com.miaSample.isProductionEnvironment"
     case isChargingPaymentEnabled = "com.miaSample.isChargingPaymentEnabled"
-    case integrationType = "com.miaSample.integrationType"
     case handlingConsumerData = "com.miaSample.handlingConsumerData"
     case userProfileData = "com.miaSample.userProfileData"
     

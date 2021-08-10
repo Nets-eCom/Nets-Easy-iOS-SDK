@@ -138,7 +138,7 @@ extension CheckoutViewController {
         if self.urlString != "" {
             self.showIndicator(show: true) {
                 
-                let integrationType = IntegrationType.cached
+                let integrationType = "HostedPaymentPage"
                 let handlingConsumerDataType = HandlingConsumerData.cached
 
                 if(handlingConsumerDataType == HandlingConsumerData.injectAddress || handlingConsumerDataType == HandlingConsumerData.noShippingMode){
@@ -162,27 +162,18 @@ extension CheckoutViewController {
                     self.showIndicator(show: false, {
                         if (result) {
                             
-                            var paymentURL = checkoutURL
-                            var easyHostedRedirectURL: String? = Constant().testReturnUrl
-                            
-                            // Local-hosted checkout
-                            if integrationType == .embeddedCheckout {
-                                paymentURL = self.urlString
-                                easyHostedRedirectURL = nil
-                            }
+                            let paymentURL = checkoutURL
+                            let easyHostedRedirectURL: String? = Constant().testReturnUrl
                                                                                     
                             let success: (MiaCheckoutController) -> Void = { controller in
-                                self.stopServer()
                                 controller.dismiss(animated: true) { self.getPayement(forID: paymentId) }
                             }
                             
                             let cancellation: (MiaCheckoutController) -> Void = { controller in
-                                self.stopServer()
                                 controller.dismiss(animated: true) { self.getPayement(forID: paymentId) }
                             }
                             
                             let failure: (MiaCheckoutController, Error) -> Void = { controller, error in
-                                self.stopServer()
                                 controller.dismiss(animated: true) {
                                     self.showAlert(title: "", message: error.localizedDescription)
                                 }
@@ -197,9 +188,6 @@ extension CheckoutViewController {
                                 cancellation: cancellation,
                                 failure: failure
                             )
-                            
-                            // Start server to host embedded checkout and/or terms-and-conditions page
-                            ServerManager.shared.start(paymentId: paymentId)
                             
                             self.present(miaSDK, animated: true, completion: nil)
                             

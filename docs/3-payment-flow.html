@@ -112,8 +112,8 @@
 <p>An integration towards <strong>Nets Easy</strong> requires having the paymentId(transactionID) created before the checkout is initialized. Your mobile application can use one of the available integration types, based on your business requirements:</p>
 
 <ol>
-<li><p><strong>HostedPaymentPage <span style="color:green">(recommended)</span></strong>: the Easy checkout page is hosted by <strong>DIBS Easy</strong> and will handle all checkout initialization. <em>This is the suggested approach if your business has only mobile commerce integration</em>.</p></li>
-<li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>: The checkout page will be hosted by you, and also all the checkout initialization and JavaScript callback handling. <em>This approach is not recommended for in-app payments as you may not be able to process transactions with Nordic wallets (Swish, Vipps, MobilePay)</em>.</p></li>
+<li><p><strong>HostedPaymentPage <span style="color:green">(recommended)</span></strong>: the Easy checkout page is hosted by <strong>Easy</strong> and will handle all checkout initialization. <em>This is the suggested approach if your business has only mobile commerce integration</em>.</p></li>
+<li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>: The checkout page will be hosted by you, and also all the checkout initialization and JavaScript callback handling. You can refer the documentation <a href="https://developers.nets.eu/nets-easy/en-EU/api/checkout-js-sdk/">here</a>.</p></li>
 </ol>
 
 <p>Your application must follow the next flow:</p>
@@ -122,7 +122,7 @@
 <li><p><strong><a href="https://tech.dibspayment.com/easy/integration-guide#createpayment">Create payment id</a></strong></p>
 
 <ul>
-<li>Your mobile application will call an API on your backend to generate the PaymentID. Your backend will call the EASY REST payment API (<strong>DIBSPayment</strong> API) to fetch the required ID, store it in the Database, then return it back to calling application.</li>
+<li>Your mobile application will call an API on your backend to generate the PaymentID. Your backend will call the EASY REST payment API to fetch the required ID, store it in the Database, then return it back to calling application.</li>
 <li><p><strong>IMPORTANT</strong>: While making the API call for creating a payment, make sure you add <code>&quot;commercePlatformTag&quot; : &quot;iOSSDK&quot;</code> in the request header. This is critical to identify the platform from which the payment is initiated.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s">"Authorization"</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span>
@@ -136,86 +136,9 @@
 <pre class="highlight plaintext"><code>* **HostedPaymentPage &lt;span style="color:green"&gt;(recommended)&lt;/span&gt;**:
     *   In the request body, under **checkout** object, make sure to send the parameters: `integrationType = HostedPaymentPage` and `returnURL = YOUR RETURN URL`. Make sure that the parameter `url` is not sent. Easy will initialize the checkout, and will return to you the `paymentId` and the `hostedPaymentPageUrl`.
 
-        **Note**: The value for `returnUrl` must be a string in URL pattern. It's not required to be a valid web page, since it won't be loaded in the WebView. It is just for detection purpose only for the SDK to know when the checkout process has completed.  
-
-* **EmbeddedCheckout &lt;span style="color:red"&gt;(not recommended)&lt;/span&gt;**:
-    * In the request body, under checkout object, make sure to send `url = YOUR HOSTED CHECKOUT PAGE` and `integrationType = EmbeddedCheckout` and the parameter `returnURL` should **NOT** be sent. Easy will return the `paymentId` and you will have to initialize the checkout.     
-
-    * [Initialize the checkout](https://tech.dibspayment.com/easy/integration-guide#initcheckout) :
-</code></pre>
-
-<p>The checkout HTML page will to be simplified for mobile (According to Easy Best-Practice rules, the EASY iFrame will be embedded inside your checkout page. For mobile, this page should be smaller, considering devices screen size. For example, you can build this page with the EASY iFrame only, which will use the generated paymentId and your secret checkout key).
-Required contents of the Checkout HTML page:</p>
-<pre class="highlight html"><code>    * Include the checkout JavaScript URL in the page `<span class="nt">&lt;head&gt;</span>` tag
-
-        ```javascript
-        //TEST environment script
-        https://test.checkout.dibspayment.eu/v1/checkout.js?v=1 
-        //PROD environment script
-        https://checkout.dibspayment.eu/v1/checkout.js?v=1
-        ```
-
-    * Add an empty `<span class="nt">&lt;div&gt;</span>` tag with a custom ID (e.g. dibs-complete-checkout)
-
-        ```html
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"YOUR UNIQUE ID"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        ```
-
-    * Introduce a page variable in a `<span class="nt">&lt;script&gt;</span><span class="s2">` tag to build all info required for the payment. The script will run once the page is loaded, and the variable will be used by the JS file.
-
-        ```</span><span class="nx">javascript</span>
-        <span class="kd">var</span> <span class="nx">checkoutOptions</span> <span class="o">=</span> <span class="p">{</span>
-                                <span class="na">checkoutKey</span><span class="p">:</span><span class="dl">"</span><span class="s2">CHECKOUTKEY</span><span class="dl">"</span><span class="p">,</span>
-                                <span class="na">paymentId</span> <span class="p">:</span><span class="dl">"</span><span class="s2">PAYMENTID</span><span class="dl">"</span><span class="p">,</span>
-                                <span class="na">language</span><span class="p">:</span> <span class="dl">"</span><span class="s2">en-GB</span><span class="dl">"</span><span class="p">,</span>
-                                <span class="na">containerId</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">YOUR UNIQUE ID</span><span class="dl">"</span><span class="p">,</span> <span class="p">};</span>
-         <span class="s2">```
-
-    * Instantiate the Dibs.Checkout object and add listener for payment completed event:
-
-        ```</span><span class="nx">javascript</span>
-        <span class="nx">dibsCheckout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">payment-completed</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">/eu.nets.mia.paymentcompleted</span><span class="dl">'</span><span class="p">;</span> <span class="p">});</span>
-        <span class="s2">```        
-
-        **NOTE:** Checkout HTML content example:
-
-         ```</span><span class="nx">html</span>
-            <span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">viewport</span><span class="dl">"</span> <span class="nx">content</span><span class="o">=</span><span class="dl">"</span><span class="s2">width=device-width, initial-scale=1</span><span class="dl">"</span><span class="o">&gt;</span>
-                    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-                        <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="dl">"</span><span class="s2">UTF-8</span><span class="dl">"</span><span class="o">&gt;</span>
-                            <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Webshop</span> <span class="kd">with</span> <span class="nx">Easy</span> <span class="nx">Payment</span><span class="o">&lt;</span><span class="sr">/title</span><span class="err">&gt;
-</span>                            <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">SOURCEURL</span><span class="dl">"</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text/javascript</span><span class="dl">"</span><span class="o">&gt;</span><span class="nt">&lt;/script&gt;</span>
-                            <span class="nt">&lt;/head&gt;</span>
-                    <span class="nt">&lt;body&gt;</span>
-                        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"dibs-iframe"</span><span class="nt">&gt;</span>
-                            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"dibs-complete-checkout"</span><span class="nt">&gt;&lt;/div&gt;</span>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-                                <span class="kd">var</span> <span class="nx">checkoutOptions</span> <span class="o">=</span> <span class="p">{</span>
-                                    <span class="na">checkoutKey</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CHECKOUTKEY</span><span class="dl">"</span><span class="p">,</span>
-                                    <span class="na">paymentId</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">REPLACETHIS</span><span class="dl">"</span><span class="p">,</span>
-                                    <span class="na">language</span><span class="p">:</span> <span class="dl">"</span><span class="s2">en-GB</span><span class="dl">"</span><span class="p">,</span>
-                                    <span class="na">containerId</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">dibs-complete-checkout</span><span class="dl">"</span><span class="p">,</span>
-                                <span class="p">};</span>
-                            <span class="kd">var</span> <span class="nx">dibsCheckout</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dibs</span><span class="p">.</span><span class="nx">Checkout</span><span class="p">(</span><span class="nx">checkoutOptions</span><span class="p">);</span>
-                            <span class="nx">dibsCheckout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">payment-completed</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-                                        <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">/eu.nets.mia.paymentcompleted</span><span class="dl">'</span><span class="p">;</span>
-                                            <span class="p">});</span>
-                            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">checkoutOptions</span><span class="p">);</span>
-                                <span class="nt">&lt;/script&gt;</span>
-                        <span class="nt">&lt;/div&gt;</span>
-                        <span class="nt">&lt;/div&gt;</span>
-                    <span class="nt">&lt;/body&gt;</span>
-            <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-<pre class="highlight plaintext"><code>
-            **Important:** it's mandatory that your Checkout HTML page will add the listener for 'payment-completed' event, and inside the callback function to call for `window.location = '/eu.nets.mia.paymentcompleted'`. Without this implementation on your page, the SDK cannot know when the payment process has completed and to return the user back to your application with a MiA Delegate object.
+        **Note**: The value for `returnUrl` must be your app scheme URL (for ex. `eu.nets.miaSample://`). It is just for detection purpose only for the SDK to know when the checkout process has completed and an indication to the wallet app to switch back to your app after finishing the payment. 
 </code></pre></li>
-</ul>
-
-<ul>
-<li><p><strong><a href="https://tech.dibspayment.com/easy/checkout-guide">Handle Consumer Data</a></strong> :</p>
+<li><p><strong><a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post-body-checkout-consumer">Handle Consumer Data</a></strong> :</p>
 
 <p>Apart from the standard checkout, <strong>EASY</strong> supports prefilling the consumer data while creating the payment ID to offer a faster checkout and better user experience. Based on your requirement, <strong>EASY</strong> supports the following types of Consumer Data Handling by the merchant.</p>
 
@@ -283,7 +206,7 @@ Required contents of the Checkout HTML page:</p>
 
 <p><strong>Presenting Mia SDK Checkout WebView</strong></p>
 
-<p>After obtaining a payment ID from Easy (<a href="https://tech.dibspayment.com/easy/api/paymentapi">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
+<p>After obtaining a payment ID from Easy (<a href="https://tech.dibspayment.com/easy/integration-guide#createpayment">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">miaSDK</span> <span class="o">=</span> <span class="kt">MiaSDK</span><span class="o">.</span><span class="nf">checkoutControllerForPayment</span><span class="p">(</span>
     <span class="nv">withID</span><span class="p">:</span> <span class="n">paymentId</span><span class="p">,</span>
     <span class="nv">paymentURL</span><span class="p">:</span> <span class="n">paymentURL</span><span class="p">,</span>
@@ -301,28 +224,20 @@ In case of <em>failure</em>, an <code>Error</code> object is returned containing
 <p><strong>Note:</strong> </p>
 
 <p><strong>We recommend that you keep all error codes internal without showing them to your users. Instead, you should provide generic messages encouraging them to retry the transaction, to select another payment method, or to contact your customer service.
-Further detail regarding the error is accessible using the <a href="https://tech.dibspayment.com/easy/integration/reporting/reporting">Reporting API</a></strong></p>
-
-<p>The values for <code>paymentURL</code> and <code>isEasyHostedWithRedirectURL</code> are based on the chosen integration type when fetching the payment ID in create-payment API call. (<em>HostedPaymentPage</em> or <em>EmbeddedCheckout</em> integration type).</p>
+Further detail regarding the error is accessible using the <a href="https://developers.nets.eu/nets-easy/en-EU/api/#gatsby-focus-wrapper">Payout API</a></strong></p>
 
 <ul>
-<li><p><strong>HostedPaymentPage</strong>:</p>
-
-<ul>
-<li><em>Payment URL:</em> For this integration type, the <code>paymentURL</code> is obtained in the JSON response of create-payment API request; under <code>hostedPaymentPageUrl</code> key.</li>
-<li><em>Redirect URL:</em> The SDK expects the same redirect URL that was passed in create-payment API request under <code>returnUrl</code> key. Pass this value to the SDK in <code>isEasyHostedWithRedirectURL</code> parameter.</li>
-<li><em>Cancel URL:</em> The SDK expects the same cancel URL that was passed in create-payment API request under <code>cancelUrl</code> key. Pass this value to the SDK in <code>cancelURL</code> parameter. 
-(<code>{&quot;order&quot; : {…}, &quot;checkout&quot; : { &quot;returnUrl&quot; : string,&quot;cancelUrl&quot; : string, …} }</code>)</li>
-</ul></li>
-<li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>:</p>
-
-<ul>
-<li><em>Payment URL:</em> Pass the checkout / payment URL your merchant hosts.</li>
-<li><em>Redirect URL:</em> A redirect URL is not required for embedded checkout hosted by merchant. Pass <code>nil</code> to the SDK in <code>isEasyHostedWithRedirectURL</code> parameter.</li>
-</ul></li>
+<li><p><em>Payment URL:</em> For this integration type, the <code>paymentURL</code> is obtained in the JSON response of create-payment API request; under <code>hostedPaymentPageUrl</code> key. </p></li>
+<li><p><em>Redirect URL:</em> The SDK expects the same redirect URL that was passed in create-payment API request under <code>returnUrl</code> key. Pass this value to the SDK in <code>isEasyHostedWithRedirectURL</code> parameter. </p></li>
+<li><p><em>Cancel URL:</em> The SDK expects the same cancel URL that was passed in create-payment API request under <code>cancelUrl</code> key. Pass this value to the SDK in <code>cancelURL</code> parameter. 
+(<code>{&quot;order&quot; : {…}, &quot;checkout&quot; : { &quot;returnUrl&quot; : string,&quot;cancelUrl&quot; : string, …} }</code>)</p></li>
 </ul>
 
-<p><strong>Important:</strong> Once a purchase is completed, the customer must receive a confirmation of the order and a receipt in the form of an on-screen-display and e-mail. Meaning that after you call <a href="https://tech.dibspayment.com/easy/api/rest/charge-payment">Charge Payment</a>, you need to call <a href="https://tech.dibspayment.com/easy/api/rest/get-payment">Get Payment</a> API to retrieve the payment information and display it to the user.</p>
+<p><strong>Customize the embedded checkout</strong></p>
+
+<p>You can customize the content of the checkout. Refer this <a href="https://developers.nets.eu/nets-easy/en-EU/docs/customize-content/customize-text-and-language-embedded/">link</a></p>
+
+<p><strong>Important:</strong> Once a purchase is completed, the customer must receive a confirmation of the order and a receipt in the form of an on-screen-display and e-mail. Meaning that after you call <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-paymentid-charges-post">Charge Payment</a>, you need to call <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-paymentid-get">Get Payment</a> API to retrieve the payment information and display it to the user.</p>
 
           </div>
         </section>
@@ -331,7 +246,7 @@ Further detail regarding the error is accessible using the <a href="https://tech
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-04-20)</p>
+      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-08-10)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

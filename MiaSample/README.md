@@ -17,7 +17,6 @@ let prodSecretKeyString    = "YOUR PRODUCTION SECRET KEY"
 ### MiA Sample Application uses the following 3rd party libraries:
 ---
 
-+ **[GCDWebServer](https://github.com/swisspol/GCDWebServer)**
 + **[SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)**
 + **[Alamofire](https://github.com/Alamofire/Alamofire)**
 + **[IQKeyboardManagerSwift](https://github.com/hackiftekhar/IQKeyboardManager)**

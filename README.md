@@ -1,4 +1,4 @@
-# MiA - EASY iOS SDK v1.3.0
+# MiA - EASY iOS SDK v1.4.0
 
 ![](./Resources/NetsLogo.jpg)
 
@@ -6,14 +6,13 @@
 
 MiA - Easy iOS SDK is a library which facilitates the integration of the Easy Re-direct Checkout in your iOS application.
 
-Detailed documentation can be found [here](https://Nets-eCom.github.io/Easy-iOS-SDK/).
+Detailed documentation can be found [here](https://nets-ecom.github.io/Easy-iOS-SDK/).
 
 Additional resources:
 
-* **Nets Easy technical documentation** can be found [here](https://tech.dibspayment.com/easy).
-* **Nets Easy API documentation** can be found [here](https://tech.dibspayment.com/easy/api).
-* **Nets Easy checkout guide (Re-direct)** can be found [here](https://tech.dibspayment.com/node4555edit/checkout-introduction).
-* **Easy - Android SDK** can be found [here](https://github.com/DIBS-Payment-Services/Easy-Android-SDK).
+* **Nets Easy technical documentation** can be found [here](https://developers.nets.eu/nets-easy/en-EU/docs/).
+* **Nets Easy API documentation** can be found [here](https://developers.nets.eu/nets-easy/en-EU/api/).
+* **Easy - Android SDK** can be found [here](https://github.com/nets-ecom/Easy-Android-SDK).
 
 ![](./Resources/mia-demo-ios.gif)
 
@@ -32,7 +31,7 @@ We have provided a sample project, MiaSample, in the repository which is written
 ### Carthage
 * Add the following line to your Cartfile
 ```
-github "DIBS-Payment-Services/Easy-iOS-SDK"
+github "nets-ecom/Easy-iOS-SDK"
 ```
 
 * Run `carthage update` to get Mia SDK
@@ -42,7 +41,7 @@ github "DIBS-Payment-Services/Easy-iOS-SDK"
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`
 
 ### Manual
-* Download/clone this https://github.com/DIBS-Payment-Services/Easy-iOS-SDK.git to get Mia.framework
+* Download/clone this https://github.com/nets-ecom/Easy-iOS-SDK.git to get Mia.framework
 * In your project **TARGET**, navigate to **GENERAL**
 * Drag and drop `Mia.framework` to **Embedded Binaries**
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`

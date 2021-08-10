@@ -116,15 +116,6 @@ enum NetsTest {
     static let secretKey    = "YOUR TEST SECRET KEY"
 }
 
-public enum IntegrationType: String, Equatable {
-    case hostedPaymentWindow = "HostedPaymentPage"
-    case embeddedCheckout = "EmbeddedCheckout"
-        
-    static var cached: IntegrationType {
-        IntegrationType(rawValue: Settings.integrationType)!
-    }
-}
-
 public enum HandlingConsumerData: String, Equatable {
     case none
     case injectAddress

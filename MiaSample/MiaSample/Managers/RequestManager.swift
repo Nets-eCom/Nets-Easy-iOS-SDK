@@ -37,7 +37,7 @@ public class RequestManager {
     
     let constant = Constant()
     
-    func getPaymentId(ipAddress:String, total:Int, currency:String, integrationType: IntegrationType, handlingConsumerDataType: HandlingConsumerData,
+    func getPaymentId(ipAddress:String, total:Int, currency:String, integrationType: String, handlingConsumerDataType: HandlingConsumerData,
          completion: @escaping (_ result: Bool, _ paymentId: String, _ checkoutURL: String, _ errorMsg : String) -> Void) {
         let price = total - 200
         
@@ -62,18 +62,9 @@ public class RequestManager {
         
         checkoutDict.setValue(["supportedTypes": ["B2C", "B2B"], "default": "B2C"], forKey: "consumerType")
         checkoutDict.setValue(termURL, forKey: "termsUrl")
-
-        switch integrationType {
-        case .embeddedCheckout:
-            checkoutDict.setValue(IntegrationType.embeddedCheckout.rawValue, forKey: "integrationType")
-            checkoutDict.setValue(ipAddress, forKey: "url")
-            checkoutDict.setValue(constant.testCancelUrl, forKey: "cancelURL")
-        case .hostedPaymentWindow:
-            checkoutDict.setValue(IntegrationType.hostedPaymentWindow.rawValue, forKey: "integrationType")
-            checkoutDict.setValue(constant.testReturnUrl, forKey: "returnURL")
-            checkoutDict.setValue(constant.testCancelUrl, forKey: "cancelURL")
-
-        }
+        checkoutDict.setValue("HostedPaymentPage", forKey: "integrationType")
+        checkoutDict.setValue(constant.testReturnUrl, forKey: "returnURL")
+        checkoutDict.setValue(constant.testCancelUrl, forKey: "cancelURL")
         
         switch handlingConsumerDataType {
             case HandlingConsumerData.injectAddress:
