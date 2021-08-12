@@ -119,7 +119,7 @@
 <p>Your application must follow the next flow:</p>
 
 <ul>
-<li><p><strong><a href="https://tech.dibspayment.com/easy/integration-guide#createpayment">Create payment id</a></strong></p>
+<li><p><strong><a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post">Create payment id</a></strong></p>
 
 <ul>
 <li>Your mobile application will call an API on your backend to generate the PaymentID. Your backend will call the EASY REST payment API to fetch the required ID, store it in the Database, then return it back to calling application.</li>
@@ -206,7 +206,7 @@
 
 <p><strong>Presenting Mia SDK Checkout WebView</strong></p>
 
-<p>After obtaining a payment ID from Easy (<a href="https://tech.dibspayment.com/easy/integration-guide#createpayment">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
+<p>After obtaining a payment ID from Easy (<a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">miaSDK</span> <span class="o">=</span> <span class="kt">MiaSDK</span><span class="o">.</span><span class="nf">checkoutControllerForPayment</span><span class="p">(</span>
     <span class="nv">withID</span><span class="p">:</span> <span class="n">paymentId</span><span class="p">,</span>
     <span class="nv">paymentURL</span><span class="p">:</span> <span class="n">paymentURL</span><span class="p">,</span>
