@@ -28,9 +28,6 @@
 import Foundation
 
 class Constant {
-    public static var testMode: Bool {
-        !Settings.isProductionEnvironment
-    }
     
     public static var chargePayment: Bool {
         Settings.isChargingPaymentEnabled
@@ -38,9 +35,6 @@ class Constant {
     
     let testSourceURL = "https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"
     let prodSourceURL = "https://checkout.dibspayment.eu/v1/checkout.js?v=1"
-    
-    let testBaseURL = "https://test.api.dibspayment.eu"
-    let prodBaseURL = "https://api.dibspayment.eu"
     
     let testReturnUrl = "eu.nets.mia.sample://miasdk"
     
@@ -65,51 +59,31 @@ class Constant {
     }
     
     // MARK: get credentials and URLs
-    func getSourceURL() -> String {
-        if Constant.testMode {
-            return testSourceURL
-        }
-        
-        return prodSourceURL
-    }
-    
-    func getCheckoutKey() -> String {
-        if Constant.testMode {
-            return testCheckoutKey
-        }
-        
-        return prodCheckoutKey
-    }
     
     func getSecretKey() -> String {
-        if Constant.testMode {
-            return testSecretKey
+        switch Settings.environment {
+        case Environment.test.rawValue:
+            return NetsTest.secretKey
+        case Environment.preprod.rawValue:
+            return NetsPreProd.secretKey
+        case Environment.prod.rawValue:
+            return NetsProduction.secretKey
+        default:
+            return NetsTest.secretKey
         }
-        
-        return prodSecretKey
     }
     
     func getBaseURL() -> String {
-        if Constant.testMode {
-            return testBaseURL
+        switch Settings.environment {
+        case Environment.test.rawValue:
+            return NetsTest.baseURL
+        case Environment.preprod.rawValue:
+            return NetsPreProd.baseURL
+        case Environment.prod.rawValue:
+            return NetsProduction.baseURL
+        default:
+            return NetsTest.baseURL
         }
-        
-        return prodBaseURL
     }
-    
-    func getCheckoutKey(testEnvironment:Bool) -> String {
-        if testEnvironment {
-            return testCheckoutKey
-        }
-        
-        return prodCheckoutKey
-    }
-    
-    func getSecretKey(testEnvironment:Bool) -> String {
-        if testEnvironment {
-            return testSecretKey
-        }
-        
-        return prodSecretKey
-    }
+
 }

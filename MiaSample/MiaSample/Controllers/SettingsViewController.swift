@@ -30,8 +30,8 @@ import Mia
 import DropDown
 
 enum Settings {
-    @Persisted(.isProductionEnvironment, defaultValue: false)
-    static var isProductionEnvironment: Bool
+    @Persisted(.environment, defaultValue: "test")
+    static var environment: String
     
     @Persisted(.isChargingPaymentEnabled, defaultValue: false)
     static var isChargingPaymentEnabled: Bool
@@ -67,9 +67,24 @@ enum Settings {
     @Persisted(.productionSecretKey, defaultValue: nil)
     static var productionSecretKey: String?
     
+    @Persisted(.perprodEnvironmentSecretKey, defaultValue: nil)
+    static var perprodEnvironmentSecretKey: String?
+    
+    @Persisted(.perprodCheckoutKey, defaultValue: nil)
+    static var perprodCheckoutKey: String?
+    
     /// Returns persistence key for current environment
     static var subscriptionsKey: PersistanceKey {
-        isProductionEnvironment ? .productionSubscriptions : .testSubscriptions
+        switch Settings.environment {
+        case Environment.test.rawValue:
+            return .testSubscriptions
+        case Environment.preprod.rawValue:
+            return .productionSubscriptions
+        case Environment.prod.rawValue:
+            return .testSubscriptions
+        default:
+            return .testSubscriptions
+        }
     }
 }
 
@@ -77,8 +92,8 @@ enum Settings {
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var applicationVersionLabel: UILabel!
-    @IBOutlet weak var productionSwitch: UISwitch!
-    
+    @IBOutlet weak var environmenrButton: MiaSamplePickerButton!
+
     //This switch is used to charge the payment after completion of the payment from the SDK.
     //Refer our documentation for the complete payment flow.
     @IBOutlet weak var chargePaymentSwitch: UISwitch!
@@ -95,6 +110,7 @@ class SettingsViewController: UIViewController {
         showApplicationVersion()
         addActionForSwitches()
         setupHandlineConsumerDataTypeButton()
+        setupEnvironmenrButton()
 
     }
     
@@ -161,20 +177,16 @@ extension SettingsViewController {
     
     
     fileprivate func addActionForSwitches() {
-        self.productionSwitch.isOn = Settings.isProductionEnvironment
-        self.productionSwitch.addTarget(self, action: #selector(productionSwitchChanged(_:)), for: .valueChanged)
-        
         self.chargePaymentSwitch.isOn = Settings.isChargingPaymentEnabled
         self.chargePaymentSwitch.addTarget(self, action: #selector(chargePaymentSwitchChanged(_:)), for: .valueChanged)
     }
     
     fileprivate func setupHandlineConsumerDataTypeButton() {
-        Settings.handlingConsumerData = HandlingConsumerData.none.rawValue
         self.handlingConsumetDataSelectionButton.setUpHandlingConsumerDataTypePicker()
     }
     
-    @objc fileprivate func productionSwitchChanged(_ urlSwitch: UISwitch) {
-        Settings.isProductionEnvironment = urlSwitch.isOn
+    fileprivate func setupEnvironmenrButton() {
+        self.environmenrButton.setUpEnvironmentPicker()
     }
     
     @objc fileprivate func chargePaymentSwitchChanged(_ urlSwitch: UISwitch) {

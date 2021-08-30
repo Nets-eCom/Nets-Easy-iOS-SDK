@@ -555,7 +555,7 @@
                                 <rect key="frame" x="10" y="10" width="261.5" height="609"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nJV-CY-XcI">
-                                        <rect key="frame" x="0.0" y="0.0" width="261.5" height="311.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="261.5" height="333.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRD-L5-eae">
                                                 <rect key="frame" x="0.0" y="0.0" width="261.5" height="30"/>
@@ -564,7 +564,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gdu-sY-DYo">
-                                                <rect key="frame" x="0.0" y="35" width="261.5" height="276.5"/>
+                                                <rect key="frame" x="0.0" y="35" width="261.5" height="298.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ss8-3B-zIo">
                                                         <rect key="frame" x="0.0" y="0.0" width="261.5" height="1"/>
@@ -574,10 +574,10 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bfb-ZR-hMk" userLabel="Settings Stack">
-                                                        <rect key="frame" x="0.0" y="21" width="261.5" height="255.5"/>
+                                                        <rect key="frame" x="0.0" y="21" width="261.5" height="277.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9lF-f9-WQM" userLabel="Configuration">
-                                                                <rect key="frame" x="0.0" y="0.0" width="194.5" height="255.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="193" height="277.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configuration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwb-LP-tef">
                                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="21.5"/>
@@ -585,29 +585,34 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-IL-klp" userLabel="Production Environment">
-                                                                        <rect key="frame" x="0.0" y="26.5" width="194.5" height="31"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-IL-klp" userLabel="Production Environment">
+                                                                        <rect key="frame" x="0.0" y="26.5" width="100" height="53"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Production Environment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsb-8H-xsP">
-                                                                                <rect key="frame" x="0.0" y="6.5" width="164.5" height="18"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Environment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsb-8H-xsP">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gfn-o7-RIv">
-                                                                                <rect key="frame" x="169.5" y="0.0" width="27" height="31"/>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-Vs-eVv" customClass="MiaSamplePickerButton" customModule="MiaSample" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="23" width="100" height="30"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="25" id="HY8-OC-Yj1"/>
+                                                                                    <constraint firstAttribute="width" constant="100" id="FwH-zD-Qb9"/>
                                                                                 </constraints>
-                                                                                <color key="onTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <state key="normal" title="Test">
+                                                                                    <color key="titleColor" red="0.1609208395" green="0.52550356769999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                </state>
                                                                                 <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="prodswitch"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="handlingofconsumerdata"/>
                                                                                 </userDefinedRuntimeAttributes>
-                                                                            </switch>
+                                                                            </button>
                                                                         </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="QbO-Vs-eVv" firstAttribute="leading" secondItem="Jsb-8H-xsP" secondAttribute="leading" id="7Xc-2T-sb9"/>
+                                                                        </constraints>
                                                                     </stackView>
                                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0Ag-St-53o" userLabel="Charge Payment">
-                                                                        <rect key="frame" x="0.0" y="60" width="143.5" height="0.0"/>
+                                                                        <rect key="frame" x="0.0" y="82" width="143.5" height="0.0"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charge Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHK-ag-YZE">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="113.5" height="0.0"/>
@@ -628,7 +633,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jJ5-0w-y55" userLabel="Change secret keys">
-                                                                        <rect key="frame" x="0.0" y="62.5" width="193" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="84.5" width="193" height="30"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change secret keys" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l16-H2-rqR">
                                                                                 <rect key="frame" x="0.0" y="6" width="135" height="18"/>
@@ -652,7 +657,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-eA-VcD" userLabel="Change secret keys">
-                                                                        <rect key="frame" x="0.0" y="97.5" width="187" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="119.5" width="187" height="30"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear cookies/caches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbf-t3-a03">
                                                                                 <rect key="frame" x="0.0" y="6" width="146" height="18"/>
@@ -676,7 +681,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="1wc-bK-g91" userLabel="Change secret keys">
-                                                                        <rect key="frame" x="0.0" y="132.5" width="74" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="154.5" width="74" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thE-N7-A9l">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
@@ -693,7 +698,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SW8-Ul-eKa">
-                                                                        <rect key="frame" x="0.0" y="167.5" width="136" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="189.5" width="136" height="30"/>
                                                                         <state key="normal" title="Show Subscriptions">
                                                                             <color key="titleColor" red="0.1609208395" green="0.52550356769999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
@@ -702,7 +707,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-sX-MUa" userLabel="Change secret keys">
-                                                                        <rect key="frame" x="0.0" y="202.5" width="185.5" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="224.5" width="185.5" height="53"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k1d-qD-jBH" userLabel="Change secret keys">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="185.5" height="53"/>
@@ -773,8 +778,8 @@
                         <outlet property="applicationVersionLabel" destination="1xr-5D-alZ" id="QuW-ik-Gbm"/>
                         <outlet property="chargePaymentStackView" destination="0Ag-St-53o" id="HRr-zV-ZWZ"/>
                         <outlet property="chargePaymentSwitch" destination="BN7-en-3y6" id="yGP-Cp-cEU"/>
+                        <outlet property="environmenrButton" destination="QbO-Vs-eVv" id="VwN-FD-Kl7"/>
                         <outlet property="handlingConsumetDataSelectionButton" destination="p9W-l4-l4J" id="hy5-Mj-8Q3"/>
-                        <outlet property="productionSwitch" destination="gfn-o7-RIv" id="i4H-XD-Syn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mX8-gz-AGn" userLabel="First Responder" sceneMemberID="firstResponder"/>

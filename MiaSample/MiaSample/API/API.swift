@@ -11,17 +11,37 @@ import Foundation
 public class EasyAPI: JSONDecodeDelegate {
     
     var baseURL: URL {
-        let test = URL(string: "https://test.api.dibspayment.eu/v1/")!
-        let production = URL(string: "https://api.dibspayment.eu/v1/")!
-        return Settings.isProductionEnvironment ? production : test
+        switch Settings.environment {
+            case Environment.test.rawValue:
+                return URL(string:NetsTest.baseURL)!
+            case Environment.preprod.rawValue:
+                return URL(string:NetsPreProd.baseURL)!
+            case Environment.prod.rawValue:
+                return URL(string:NetsProduction.baseURL)!
+            default:
+                return URL(string:NetsTest.baseURL)!
+        }
     }
     
     var headers: [String : String] {
         var productionKey: String { Settings.productionSecretKey ?? NetsProduction.secretKey }
         var testKey: String { Settings.testEnvironmentSecretKey ?? NetsTest.secretKey }
+        var key: String = ""
+        
+        switch Settings.environment {
+            case Environment.test.rawValue:
+                key = NetsTest.secretKey
+            case Environment.preprod.rawValue:
+                key = NetsPreProd.secretKey
+            case Environment.prod.rawValue:
+                key = NetsProduction.secretKey
+            default:
+                key = NetsTest.secretKey
+        }
+        
         return [
             "Content-Type" : "application/json",
-            "Authorization" : "Token \(Settings.isProductionEnvironment ? productionKey : testKey)",
+            "Authorization" : "Token \(key)",
             "commercePlatformTag" : "iOSSDK"
         ]
     }
@@ -46,7 +66,7 @@ public class EasyAPI: JSONDecodeDelegate {
         success: @escaping (SubscriptionRegistration) -> Void,
         failure: ((AnyFetchError) -> Void)?) {
         
-        let url = baseURL.appending(path: "payments/")!
+        let url = baseURL.appending(path: "v1/payments/")!
         var request = URLRequest(for: url, method: .post, headers: headers)
         request.httpBody = try! JSONEncoder().encode(
             SubscriptionRequest(orderAmount: amount, currency: currency, checkout: checkout)
@@ -64,7 +84,7 @@ public class EasyAPI: JSONDecodeDelegate {
         success: @escaping (SubscriptionPaymentDetails) -> Void,
         failure: ((AnyFetchError) -> Void)?) {
         
-        let url = baseURL.appending(path: "payments/\(paymentID)")!
+        let url = baseURL.appending(path: "v1/payments/\(paymentID)")!
         let request = URLRequest(for: url, method: .get, headers: headers)
         URLSession.shared.fetchJson(with: request, decodeDelegate: self, success: success, failure: failure)
     }
@@ -77,7 +97,7 @@ public class EasyAPI: JSONDecodeDelegate {
         success: @escaping (SubscriptionDetails) -> Void,
         failure: ((AnyFetchError) -> Void)?) {
         
-        let url = baseURL.appending(path: "subscriptions/\(subscriptionID)")!
+        let url = baseURL.appending(path: "v1/subscriptions/\(subscriptionID)")!
         let request = URLRequest(for: url, method: .get, headers: headers)
         URLSession.shared.fetchJson(with: request, decodeDelegate: self, success: success, failure: failure)
     }
@@ -92,7 +112,7 @@ public class EasyAPI: JSONDecodeDelegate {
         success: @escaping (ChargeSubscriptionResponse) -> Void,
         failure: ((AnyFetchError) -> Void)?) {
         
-        let url = baseURL.appending(path: "subscriptions/\(subscriptionID)/charges")!
+        let url = baseURL.appending(path: "v1/subscriptions/\(subscriptionID)/charges")!
         var request = URLRequest(for: url, method: .post, headers: headers)
         
         struct ChargeRequest: Encodable { let order: Order }
@@ -109,11 +129,19 @@ public class EasyAPI: JSONDecodeDelegate {
 enum NetsProduction {
     static let checkoutKey  = "YOUR PRODUCTION CHECKOUT KEY IS HERE"
     static let secretKey    = "YOUR PRODUCTION SECRET KEY"
+    static let baseURL      = "YOUR BASE URL"
 }
 
 enum NetsTest {
     static let checkoutKey  = "YOUR TEST CHECKOUT KEY IS HERE"
     static let secretKey    = "YOUR TEST SECRET KEY"
+    static let baseURL      = "YOUR BASE URL"
+}
+
+enum NetsPreProd {
+    static let checkoutKey  = "YOUR TEST CHECKOUT KEY IS HERE"
+    static let secretKey    = "YOUR TEST SECRET KEY"
+    static let baseURL      = "YOUR BASE URL"
 }
 
 public enum HandlingConsumerData: String, Equatable {
@@ -123,5 +151,15 @@ public enum HandlingConsumerData: String, Equatable {
     
     static var cached: HandlingConsumerData {
         HandlingConsumerData(rawValue: Settings.handlingConsumerData)!
+    }
+}
+
+public enum Environment: String, Equatable {
+    case test = "Test"
+    case preprod = "PreProduction"
+    case prod = "Prodcution"
+    
+    static var cached: Environment {
+        Environment(rawValue: Settings.environment)!
     }
 }

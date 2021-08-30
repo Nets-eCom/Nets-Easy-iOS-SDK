@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Persistance
 
 enum PersistanceKey: String {
-    case isProductionEnvironment = "com.miaSample.isProductionEnvironment"
+    case environment = "com.miaSample.environment"
     case isChargingPaymentEnabled = "com.miaSample.isChargingPaymentEnabled"
     case handlingConsumerData = "com.miaSample.handlingConsumerData"
     case userProfileData = "com.miaSample.userProfileData"
@@ -20,6 +20,8 @@ enum PersistanceKey: String {
     case testCheckoutKey = "com.miaSample.testCheckoutKey"
     case productionCheckoutKey = "com.miaSample.productionCheckoutKey"
     case productionSecretKey = "com.miaSample.productionSecretKey"
+    case perprodEnvironmentSecretKey = "com.miaSample.perprodEnvironmentSecretKey"
+    case perprodCheckoutKey = "com.miaSample.perprodCheckoutKey"
     
     case testSubscriptions = "com.miaSample.testSubscriptions"
     case productionSubscriptions = "com.miaSample.productionSubscriptions"

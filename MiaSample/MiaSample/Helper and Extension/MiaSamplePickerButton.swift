@@ -30,14 +30,19 @@ import Mia
 
 var currentIntegrationType = "HostedPaymentPage"
 var currentHandlingConsumerDataType = "None"
+var currentEnvironment = Environment.test.rawValue
+
 
 public enum MiaSamplePickerType {
     case HandlingConsumerData
+    case Environment
 }
 
 class MiaSamplePickerButton: UIButton {
     
     fileprivate let handlingConsumerData = ["None","Injected by merchant","No Shipping address"]
+    fileprivate let EnvironmentData = [Environment.test.rawValue,Environment.preprod.rawValue,Environment.prod.rawValue]
+
 
     fileprivate var dropDownButton = DropDown()
     
@@ -56,6 +61,11 @@ class MiaSamplePickerButton: UIButton {
         self.setUpDropDownButtonWithHandlindDataType()
     }
     
+    func setUpEnvironmentPicker() {
+        self.setTitleColor(UIColor(red: 41/255, green: 134/255, blue: 255/255, alpha: 1), for: .normal)
+        self.setUpDropDownButtonWithEnvironment()
+    }
+    
     func setUpCountryPicker() {
         self.setTitleColor(UIColor.black, for: .normal)
         self.setUpDropDownButtonWithCountry()
@@ -67,6 +77,8 @@ class MiaSamplePickerButton: UIButton {
         switch type {
             case .HandlingConsumerData:
                 tempIndex = self.handlingConsumerData.firstIndex(of: currentHandlingConsumerDataType) ?? 0
+            case .Environment:
+                tempIndex = self.EnvironmentData.firstIndex(of: currentEnvironment) ?? 0
         }
         
         self.dropDownButton.selectRow(tempIndex)
@@ -83,6 +95,21 @@ class MiaSamplePickerButton: UIButton {
     
     fileprivate func setUpDropDownButtonWithHandlindDataType() {
         self.dropDownButton.dataSource = self.handlingConsumerData
+        switch Settings.handlingConsumerData {
+        case HandlingConsumerData.none.rawValue:
+            self.dropDownButton.selectRow(0)
+            currentHandlingConsumerDataType = HandlingConsumerData.none.rawValue
+        case HandlingConsumerData.injectAddress.rawValue:
+            self.dropDownButton.selectRow(1)
+            currentHandlingConsumerDataType = HandlingConsumerData.injectAddress.rawValue
+        case HandlingConsumerData.noShippingMode.rawValue:
+            self.dropDownButton.selectRow(2)
+            currentHandlingConsumerDataType = HandlingConsumerData.noShippingMode.rawValue
+        default:
+            self.dropDownButton.selectRow(0)
+            currentHandlingConsumerDataType = HandlingConsumerData.none.rawValue
+        }
+        
         self.setTitle("\(currentHandlingConsumerDataType) ", for: .normal)
         dropDownButton.selectionAction = { (index, item) in
             currentHandlingConsumerDataType = item
@@ -92,6 +119,38 @@ class MiaSamplePickerButton: UIButton {
                 case 0: return HandlingConsumerData.none.rawValue
                 case 1: return HandlingConsumerData.injectAddress.rawValue
                 default: return HandlingConsumerData.noShippingMode.rawValue
+                }
+            }()
+        }
+    }
+    
+    fileprivate func setUpDropDownButtonWithEnvironment() {
+        self.dropDownButton.dataSource = self.EnvironmentData
+        switch Settings.environment {
+        case Environment.test.rawValue:
+            self.dropDownButton.selectRow(0)
+            currentEnvironment = Environment.test.rawValue
+        case Environment.preprod.rawValue:
+            self.dropDownButton.selectRow(1)
+            currentEnvironment = Environment.preprod.rawValue
+        case Environment.prod.rawValue:
+            self.dropDownButton.selectRow(2)
+            currentEnvironment = Environment.prod.rawValue
+        default:
+            self.dropDownButton.selectRow(1)
+            currentEnvironment = Environment.test.rawValue
+        }
+        
+        self.setTitle("\(currentEnvironment) ", for: .normal)
+        dropDownButton.selectionAction = { (index, item) in
+            currentEnvironment = item
+            self.setTitle("\(currentEnvironment)", for: .normal)
+            Settings.environment = {
+                switch index {
+                case 0: return Environment.test.rawValue
+                case 1: return Environment.preprod.rawValue
+                case 2: return Environment.prod.rawValue
+                default: return Environment.test.rawValue
                 }
             }()
         }
