@@ -109,12 +109,12 @@
             
             <h2 id='subscriptions-a-href-https-developers-nets-eu-nets-easy-en-eu-api-payment-v1-subscriptions-recurring-api-a' class='heading'>Subscriptions (<a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#subscriptions">Recurring API</a>)</h2>
 
-<p>EASY supports subscriptions allowing charging customers on a regular basis. The API contains subscription creation and charging of subscriptions.
-Merchant is responsible for managing subscriptions after they&rsquo;re created with <em>EASY recurring API</em>. The following code samples demonstrate the steps 
+<p>Nets EASY supports subscriptions allowing charging customers on a regular basis. The API contains subscription creation and charging of subscriptions.
+Merchant is responsible for managing subscriptions after they&rsquo;re created with <em>Nets EASY recurring API</em>. The following code samples demonstrate the steps 
 required to create and charge subscriptions. </p>
-<h3 id='create-a-subscription-with-em-easy-recurring-api-em' class='heading'>Create a Subscription with <em>EASY Recurring API</em></h3>
+<h3 id='create-a-subscription-with-em-nets-easy-recurring-api-em' class='heading'>Create a Subscription with <em>Nets EASY Recurring API</em></h3>
 
-<p>To create a subscription, include a <em>subscription</em> JSON object in the request body of the POST payment request as shown in <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post-body-subscription">Easy API reference</a>. </p>
+<p>To create a subscription, include a <em>subscription</em> JSON object in the request body of the POST payment request as shown in <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post-body-subscription">Nets Easy API reference</a>. </p>
 
 <p><strong>IMPORTANT</strong>: While making the API call for creating a subscription , make sure you add <code>&quot;commercePlatformTag&quot; : &quot;iOSSDK&quot;</code> in the request header. This is critical to identify the platform from which the payment is initiated.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span> <span class="o">=</span> <span class="p">[</span>
@@ -156,13 +156,13 @@ required to create and charge subscriptions. </p>
 <p>A subscription object contains an <code>endDate</code>, last date of the subscription, and an <code>interval</code> representing the interval (in number of days) at which the subscription can be charged.<br>
 For recurring payments chargeable at any given time (with no regular interval), <code>interval = 0</code> should be used. </p>
 
-<p><em>EASY recurring API</em> expects the <code>endDate</code> to have the following format: <code>yyyy-MM-dd&#39;T&#39;HH:mm:ss+zz:zz</code>.</p>
+<p><em>Nets EASY recurring API</em> expects the <code>endDate</code> to have the following format: <code>yyyy-MM-dd&#39;T&#39;HH:mm:ss+zz:zz</code>.</p>
 
 <p>e.g. <code>2019-07-18T00:00:00+01:00</code> for timezone GMT + 1 hour. </p>
 
 <p>The following extension on <code>DateFormatter</code> can be used to convert a given <code>date</code> and <code>timezone</code> to this format:</p>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">DateFormatter</span> <span class="p">{</span>
-    <span class="c1">/// Returns date formatted for EASY recurring API</span>
+    <span class="c1">/// Returns date formatted for Nets EASY recurring API</span>
     <span class="c1">/// e.g. output: "2019-07-18T00:00:00+00:00"</span>
     <span class="kd">static</span> <span class="kd">func</span> <span class="nf">easyAPIFormatted</span><span class="p">(</span><span class="n">_</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">timezone</span><span class="p">:</span> <span class="kt">TimeZone</span> <span class="o">=</span> <span class="o">.</span><span class="n">current</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
         <span class="k">let</span> <span class="nv">timezoneOffset</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="p">{</span>
@@ -184,9 +184,9 @@ For recurring payments chargeable at any given time (with no regular interval), 
 </code></pre>
 <h3 id='retrieve-a-newly-created-subscription' class='heading'>Retrieve a Newly Created Subscription</h3>
 
-<p><em>EASY recurring API</em> returns <code>paymentID</code> following subscription creation. To obtain the subscription details, use this ID to fetch subscription ID for the newly created subscription. </p>
+<p><em>Nets EASY recurring API</em> returns <code>paymentID</code> following subscription creation. To obtain the subscription details, use this ID to fetch subscription ID for the newly created subscription. </p>
 
-<p>See <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-subscriptions-subscriptionid-gets">Easy API reference</a></p>
+<p>See <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-subscriptions-subscriptionid-gets">Nets Easy API reference</a></p>
 <pre class="highlight swift"><code><span class="c1">/// Response object following fetch request of subscription with `paymentId`</span>
 <span class="c1">/// Object contains subscription ID that can be used to fetch subscription details</span>
 <span class="kd">struct</span> <span class="kt">SubscriptionPaymentDetails</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
@@ -208,7 +208,7 @@ For recurring payments chargeable at any given time (with no regular interval), 
 <span class="p">}</span>
 </code></pre>
 
-<p>Subscription details can be obtained from EASY using a subscription ID. </p>
+<p>Subscription details can be obtained from Nets EASY using a subscription ID. </p>
 <pre class="highlight swift"><code><span class="c1">// E.g. subscription details fetch request. See MiaSample app for more</span>
 <span class="kd">func</span> <span class="nf">fetchSubscriptionDetails</span><span class="p">(</span><span class="nv">subscriptionID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">SubscriptionDetails</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="n">baseURL</span><span class="o">.</span><span class="nf">appending</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"subscriptions/</span><span class="se">\(</span><span class="n">subscriptionID</span><span class="se">)</span><span class="s">"</span><span class="p">)</span><span class="o">!</span>
@@ -228,7 +228,7 @@ For recurring payments chargeable at any given time (with no regular interval), 
 
 <p>Subscriptions can be charged via a POST charge request providing subscription ID and a charge request body containing order details. </p>
 
-<p>See <a href="https://developers.nets.eu/nets-easy/en-EU/docs/manage-subscriptions/#build-step-2-charge-a-subscription">Easy API reference</a></p>
+<p>See <a href="https://developers.nets.eu/nets-easy/en-EU/docs/manage-subscriptions/#build-step-2-charge-a-subscription">Nets Easy API reference</a></p>
 <pre class="highlight swift"><code><span class="c1">/// Success response following charge-subscription request</span>
 <span class="kd">struct</span> <span class="kt">ChargeSubscriptionResponse</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">paymentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chargeId</span><span class="p">:</span> <span class="kt">String</span>
@@ -255,7 +255,7 @@ For recurring payments chargeable at any given time (with no regular interval), 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-08-27)</p>
+      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-11-05)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

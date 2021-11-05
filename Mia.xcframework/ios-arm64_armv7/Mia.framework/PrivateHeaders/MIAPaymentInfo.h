@@ -31,8 +31,7 @@
 //  The above copyright notice and this permission notice shall be included in all copies
 //  or substantial portions of the Software.
 //
-//  Software may only be used for commercial or production purpose together with Easy services
-//  (as per https://tech.dibspayment.com/easy) provided from NETS, its subsidiaries
+//  Software may only be used for commercial or production purpose together with Nets Easy services (as per https://developers.nets.eu/nets-easy/en-EU/docs/) provided from NETS, its subsidiaries
 //  or affiliates under common control.
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
@@ -56,25 +55,25 @@
 @property (strong, readonly, nonatomic) NSString *_Nonnull paymentId;
 
 /**
- Checkout URL which includes iFrame from EASY
+ Checkout URL which includes iFrame from Nets EASY
  */
 @property (strong, readonly, nonatomic) NSString *_Nonnull paymentURL;
 
 /**
- Return URL, EASY will redirect to this URL after transaction
+ Return URL, Nets EASY will redirect to this URL after transaction
  */
 @property (strong, readonly, nonatomic) NSString *_Nullable returnURL;
 
 /**
- Cancel URL, EASY will redirect to this URL if user cancels the transaction
+ Cancel URL, Nets EASY will redirect to this URL if user cancels the transaction
  */
 @property (strong, readonly, nonatomic) NSString *_Nullable cancelURL;
 
 
 /**
  @param paymentId Payment ID
- @param paymentURL Checkout URL which includes iFrame from EASY
- @param returnURL EASY will redirect to this URL after transaction
+ @param paymentURL Checkout URL which includes iFrame from Nets EASY
+ @param returnURL Nets EASY will redirect to this URL after transaction
  */
 - (instancetype _Nonnull)initWithPaymentId:(NSString *_Nonnull)paymentId
                                 paymentURL:(NSString *_Nonnull)paymentURL

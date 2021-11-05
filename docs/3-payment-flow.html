@@ -112,7 +112,7 @@
 <p>An integration towards <strong>Nets Easy</strong> requires having the paymentId(transactionID) created before the checkout is initialized. Your mobile application can use one of the available integration types, based on your business requirements:</p>
 
 <ol>
-<li><p><strong>HostedPaymentPage <span style="color:green">(recommended)</span></strong>: the Easy checkout page is hosted by <strong>Easy</strong> and will handle all checkout initialization. <em>This is the suggested approach if your business has only mobile commerce integration</em>.</p></li>
+<li><p><strong>HostedPaymentPage <span style="color:green">(recommended)</span></strong>: the Nets Easy checkout page is hosted by <strong>Nets Easy</strong> and will handle all checkout initialization. <em>This is the suggested approach if your business has only mobile commerce integration</em>.</p></li>
 <li><p><strong>EmbeddedCheckout <span style="color:red">(not recommended)</span></strong>: The checkout page will be hosted by you, and also all the checkout initialization and JavaScript callback handling. You can refer the documentation <a href="https://developers.nets.eu/nets-easy/en-EU/api/checkout-js-sdk/">here</a>.</p></li>
 </ol>
 
@@ -122,7 +122,7 @@
 <li><p><strong><a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post">Create payment id</a></strong></p>
 
 <ul>
-<li>Your mobile application will call an API on your backend to generate the PaymentID. Your backend will call the EASY REST payment API to fetch the required ID, store it in the Database, then return it back to calling application.</li>
+<li>Your mobile application will call an API on your backend to generate the PaymentID. Your backend will call the Nets EASY REST payment API to fetch the required ID, store it in the Database, then return it back to calling application.</li>
 <li><p><strong>IMPORTANT</strong>: While making the API call for creating a payment, make sure you add <code>&quot;commercePlatformTag&quot; : &quot;iOSSDK&quot;</code> in the request header. This is critical to identify the platform from which the payment is initiated.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s">"Authorization"</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span>
@@ -134,19 +134,19 @@
 
 <p>Based on your chosen integration type, you need to consider the following:</p>
 <pre class="highlight plaintext"><code>* **HostedPaymentPage &lt;span style="color:green"&gt;(recommended)&lt;/span&gt;**:
-    *   In the request body, under **checkout** object, make sure to send the parameters: `integrationType = HostedPaymentPage` and `returnURL = YOUR RETURN URL`. Make sure that the parameter `url` is not sent. Easy will initialize the checkout, and will return to you the `paymentId` and the `hostedPaymentPageUrl`.
+    *   In the request body, under **checkout** object, make sure to send the parameters: `integrationType = HostedPaymentPage` and `returnURL = YOUR RETURN URL`. Make sure that the parameter `url` is not sent. Nets Easy will initialize the checkout, and will return to you the `paymentId` and the `hostedPaymentPageUrl`.
 
         **Note**: The value for `returnUrl` must be your app scheme URL (for ex. `eu.nets.miaSample://`). It is just for detection purpose only for the SDK to know when the checkout process has completed and an indication to the wallet app to switch back to your app after finishing the payment. 
 </code></pre></li>
 <li><p><strong><a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post-body-checkout-consumer">Handle Consumer Data</a></strong> :</p>
 
-<p>Apart from the standard checkout, <strong>EASY</strong> supports prefilling the consumer data while creating the payment ID to offer a faster checkout and better user experience. Based on your requirement, <strong>EASY</strong> supports the following types of Consumer Data Handling by the merchant.</p>
+<p>Apart from the standard checkout, <strong>Nets EASY</strong> supports prefilling the consumer data while creating the payment ID to offer a faster checkout and better user experience. Based on your requirement, <strong>Nets EASY</strong> supports the following types of Consumer Data Handling by the merchant.</p>
 
 <ul>
 <li><p><strong>Inject address mode</strong> :</p>
 
 <ul>
-<li><p>The merchant&rsquo;s app can prefill the consumer data and send it to <strong>EASY Checkout</strong> while creating the payment ID. The <strong>checkout</strong> object under the request body must contain the <code>consumer</code> data and <code>merchantHandlesConsumerData = true</code>.  Here is an example :</p>
+<li><p>The merchant&rsquo;s app can prefill the consumer data and send it to <strong>Nets EASY Checkout</strong> while creating the payment ID. The <strong>checkout</strong> object under the request body must contain the <code>consumer</code> data and <code>merchantHandlesConsumerData = true</code>.  Here is an example :</p>
 <pre class="highlight swift"><code><span class="s">"checkout"</span><span class="p">:</span> <span class="p">{</span>
     <span class="o">...</span>
     <span class="s">"consumer"</span><span class="p">:{</span>
@@ -206,7 +206,7 @@
 
 <p><strong>Presenting Mia SDK Checkout WebView</strong></p>
 
-<p>After obtaining a payment ID from Easy (<a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
+<p>After obtaining a payment ID from Nets Easy (<a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-post">Create Payment API call</a>), typically following a user-action to continue with checkout, present the checkout WebView using Mia SDK as follows: </p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">miaSDK</span> <span class="o">=</span> <span class="kt">MiaSDK</span><span class="o">.</span><span class="nf">checkoutControllerForPayment</span><span class="p">(</span>
     <span class="nv">withID</span><span class="p">:</span> <span class="n">paymentId</span><span class="p">,</span>
     <span class="nv">paymentURL</span><span class="p">:</span> <span class="n">paymentURL</span><span class="p">,</span>
@@ -240,7 +240,7 @@ Further detail regarding the error is accessible using the <a href="https://deve
 <p><strong>Important:</strong> Once a purchase is completed, the customer must receive a confirmation of the order and a receipt in the form of an on-screen-display and e-mail. Meaning that after you call <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-paymentid-charges-post">Charge Payment</a>, you need to call <a href="https://developers.nets.eu/nets-easy/en-EU/api/payment-v1/#v1-payments-paymentid-get">Get Payment</a> API to retrieve the payment information and display it to the user.</p>
 <h2 id='digital-wallets-mobilepay-vipps-swish' class='heading'>Digital Wallets (MobilePay,Vipps,Swish)</h2>
 
-<p>Easy Checkout by Nets includes Digital Wallets as payment methods.</p>
+<p>Nets Easy Checkout includes Digital Wallets as payment methods.</p>
 
 <p>The MiA SDK has the ability to app switch to the Vipps and MobilePay wallet apps. In order for the MiA SDK to perform app detection, you need to add the wallet app schemes (shown below) under the <code>LSApplicationQueriesSchemes</code> key in your <strong>Info.plist</strong> file. If you skip this step, the MiA SDK will not be able to make an app switch to the mobile wallet even though the wallet app is installed on the device.</p>
 <h3 id='vipps' class='heading'>Vipps</h3>
@@ -265,7 +265,7 @@ Further detail regarding the error is accessible using the <a href="https://deve
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-08-27)</p>
+      <p>&copy; 2021 <a class="link" href="https://nets.eu" target="_blank" rel="external">Nets</a>. All rights reserved. (Last updated: 2021-11-05)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

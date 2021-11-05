@@ -1,18 +1,18 @@
-# MiA - EASY iOS SDK v1.5.0
+# MiA - Nets EASY iOS SDK v1.6.0
 
-![](./Resources/NetsLogo.jpg)
+![](./Resources/NetsLogo.png)
 
 ## Getting started
 
-MiA - Easy iOS SDK is a library which facilitates the integration of the Easy Re-direct Checkout in your iOS application.
+MiA - Nets Easy iOS SDK is a library which facilitates the integration of the Nets Easy Re-direct Checkout in your iOS application.
 
-Detailed documentation can be found [here](https://nets-ecom.github.io/Easy-iOS-SDK/).
+Detailed documentation can be found [here](https://nets-ecom.github.io/Nets-Easy-iOS-SDK/).
 
 Additional resources:
 
 * **Nets Easy technical documentation** can be found [here](https://developers.nets.eu/nets-easy/en-EU/docs/).
 * **Nets Easy API documentation** can be found [here](https://developers.nets.eu/nets-easy/en-EU/api/).
-* **Easy - Android SDK** can be found [here](https://github.com/nets-ecom/Easy-Android-SDK).
+* **Nets Easy - Android SDK** can be found [here](https://github.com/nets-ecom/Nets-Easy-Android-SDK).
 
 ![](./Resources/mia-demo-ios.gif)
 
@@ -21,7 +21,7 @@ Additional resources:
 | ![](./Resources/MiaSample1.PNG) | ![](./Resources/MiaSample2.PNG) | ![](./Resources/MiaSample3.PNG) |
 | --- | --- | --- |
 
-We have provided a sample project, MiaSample, in the repository which is written in Swift 4.2 and it demonstrates MiA EASY SDK usage and capabilities. To use it, download the repo, run **pod install** to download the required libraries and open **MiaSample.xcworkspace**. After that, navigate to **API.swift** to add your provided information from Easy platform.
+We have provided a sample project, MiaSample, in the repository which is written in Swift 4.2 and it demonstrates MiA Nets EASY SDK usage and capabilities. To use it, download the repo, run **pod install** to download the required libraries and open **MiaSample.xcworkspace**. After that, navigate to **API.swift** to add your provided information from Nets Easy platform.
 
 ## Requirements
 * MiA iOS SDK requires iOS 9 or above.
@@ -31,7 +31,7 @@ We have provided a sample project, MiaSample, in the repository which is written
 ### Carthage
 * Add the following line to your Cartfile
 ```
-github "nets-ecom/Easy-iOS-SDK"
+github "nets-ecom/Nets-Easy-iOS-SDK"
 ```
 
 * Run `carthage update` to get Mia SDK
@@ -41,14 +41,14 @@ github "nets-ecom/Easy-iOS-SDK"
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`
 
 ### Manual
-* Download/clone this https://github.com/nets-ecom/Easy-iOS-SDK.git to get Mia.framework
+* Download/clone this https://github.com/nets-ecom/Nets-Easy-iOS-SDK.git to get Mia.framework
 * In your project **TARGET**, navigate to **GENERAL**
 * Drag and drop `Mia.framework` to **Embedded Binaries**
 * In any file you'd like to use Mia in, do not forget to import the framework with `import Mia`
 
 Xcode 11+ users can now replace Mia.framework in Xcode-Targets Frameworks, Libraries and Embedded Contents with Mia.XCFramework for iOS and iOS Simulator architectures.
 
-## High level architecture of the Easy SDK
+## High level architecture of the Nets Easy SDK
 The below picture illustrates the SDK and its interactions with the macro components of the integration’s environment.
 
 ![](./Resources/mia_macro_elements.png)

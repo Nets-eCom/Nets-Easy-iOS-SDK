@@ -57,7 +57,7 @@ public class RequestManager {
         
         /**
          * Create the checkout Dict based on the integration type
-         * Refer "https://tech.dibspayment.com/easy/checkout-guide" for more details
+         * Refer "https://developers.nets.eu/nets-easy/en-EU/docs/" for more details
          */
         
         checkoutDict.setValue(["supportedTypes": ["B2C", "B2B"], "default": "B2C"], forKey: "consumerType")

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AE824DEADDF69C5C90AA786 /* Mia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE2026174B2250A7A6C30D6 /* Mia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		35BAAD4EE898F136624616A5 /* Mia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE2026174B2250A7A6C30D6 /* Mia.framework */; };
 		6E0AF9A1238D3C3C00FB9506 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0AF9A0238D3C3C00FB9506 /* ProfileViewController.swift */; };
 		6E7CCA3923950ED30033BF7C /* ProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7CCA3823950ED20033BF7C /* ProfileHelper.swift */; };
 		6ED9996D22898E6F00F0FF33 /* MiaSamplePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9996A22898E6F00F0FF33 /* MiaSamplePickerButton.swift */; };
@@ -35,6 +33,8 @@
 		A38A90CF2417EC3D008AA7F1 /* APICoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90CC2417EC3D008AA7F1 /* APICoding.swift */; };
 		A38A90D2241F71A6008AA7F1 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90D1241F71A6008AA7F1 /* Subscription.swift */; };
 		A38A90D52420CD73008AA7F1 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90D42420CD72008AA7F1 /* SubscriptionCell.swift */; };
+		AACFE9F84EEFE60C6E805A0D /* Mia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0906F63007FBD103AF8E7A2 /* Mia.framework */; };
+		C2249565B5EEE68847DD6D4E /* Mia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0906F63007FBD103AF8E7A2 /* Mia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC7A42B015EC2B014A5BA9BB /* Pods_MiaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AFA918A084D2EDD9B886CC /* Pods_MiaSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0AE824DEADDF69C5C90AA786 /* Mia.framework in Embed Frameworks */,
+				C2249565B5EEE68847DD6D4E /* Mia.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		30AFA918A084D2EDD9B886CC /* Pods_MiaSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiaSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BE2026174B2250A7A6C30D6 /* Mia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mia.framework; path = ../libs/Mia.framework; sourceTree = "<group>"; };
 		6E0AF9A0238D3C3C00FB9506 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6E7CCA3823950ED20033BF7C /* ProfileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHelper.swift; sourceTree = "<group>"; };
 		6ED9996A22898E6F00F0FF33 /* MiaSamplePickerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiaSamplePickerButton.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		A38A90D1241F71A6008AA7F1 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		A38A90D42420CD72008AA7F1 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		B6EF249C3E1D73861FA3F724 /* Pods-MiaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiaSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiaSample/Pods-MiaSample.release.xcconfig"; sourceTree = "<group>"; };
+		F0906F63007FBD103AF8E7A2 /* Mia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mia.framework; path = ../libs/Mia.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			files = (
 				858FD86021E73CFA008F23E2 /* BuildFile in Frameworks */,
 				EC7A42B015EC2B014A5BA9BB /* Pods_MiaSample.framework in Frameworks */,
-				35BAAD4EE898F136624616A5 /* Mia.framework in Frameworks */,
+				AACFE9F84EEFE60C6E805A0D /* Mia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +155,7 @@
 		85092C6C21FBAA5700F0F2CF /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				6BE2026174B2250A7A6C30D6 /* Mia.framework */,
+				F0906F63007FBD103AF8E7A2 /* Mia.framework */,
 			);
 			name = libs;
 			path = ../../libs;
@@ -441,7 +441,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -505,7 +505,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -535,7 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QMGG9DUSQ8;
 				ENABLE_BITCODE = NO;
@@ -545,7 +545,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "";
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -567,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QMGG9DUSQ8;
 				ENABLE_BITCODE = NO;
@@ -577,7 +577,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "";
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",

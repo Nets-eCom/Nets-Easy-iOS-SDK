@@ -1,7 +1,7 @@
 ## This is a reference source code of an application (under MIT license) using the SDK, provided for demo purpose!
 
 # Xamarin Integration Guide
-This guided is intended to help you get up to speed and start implementing MiA - Easy iOS SDK right away.
+This guided is intended to help you get up to speed and start implementing MiA - Nets Easy iOS SDK right away.
 
 **Note:** The `MiA Xamarin iOS` library is also available on [NuGet](https://www.nuget.org/).
 

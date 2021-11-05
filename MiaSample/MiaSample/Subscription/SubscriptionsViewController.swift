@@ -209,7 +209,7 @@ class SubscriptionsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        /// Easy API currently does not support deleting a subscription.
+        /// Nets Easy API currently does not support deleting a subscription.
         /// This implementation removes cached subscription from the client for test convenience
         subscriptions.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)

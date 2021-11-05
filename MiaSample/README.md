@@ -1,6 +1,6 @@
 ##This is a reference source code of an application (under MIT license) using the SDK, provided for demo purpose!
 
-## To setup your own Easy Secret Keys, add them here. By default, we provided our own test Keys so you can get started quickly. Feel free to replace them with your own!
+## To setup your own Nets Easy Secret Keys, add them here. By default, we provided our own test Keys so you can get started quickly. Feel free to replace them with your own!
 
 Please add to the **gradle.properties** file in APP level the values for the following variables as provided by Nets: 
 
