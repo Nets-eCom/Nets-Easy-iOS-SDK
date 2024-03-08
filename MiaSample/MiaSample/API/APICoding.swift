@@ -31,6 +31,13 @@ extension EasyAPI {
             quantity = 1, taxRate = 0, taxAmount = 0,
             
             unitPrice: Int, grossTotalAmount: Int, netTotalAmount: Int
+            
+            init(unitPrice: Int, grossTotalAmount: Int, netTotalAmount: Int) {
+                self.unitPrice = unitPrice
+                self.grossTotalAmount = grossTotalAmount
+                self.netTotalAmount = netTotalAmount
+            }
+            
         }
     }
     

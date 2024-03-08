@@ -80,12 +80,29 @@ struct PersistedArray<T> {
             guard let data = userDefaults.object(forKey: key) as? Data else {
                 return []
             }
-            return NSKeyedUnarchiver.unarchiveObject(with: data) as! [T]
+            
+            do {
+                if let value = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [T] {
+                    return value
+                }
+            } catch {
+                print("Couldn't read file.")
+            }
+            
+            return []
         }
+        
         set(items) {
             defer { userDefaults.synchronize() }
-            let data = NSKeyedArchiver.archivedData(withRootObject: items)
-            userDefaults.set(data, forKey: key)
+            
+            do {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: true)
+                
+                userDefaults.set(data, forKey: key)
+
+            } catch {
+                print (error)
+            }
         }
     }
 }

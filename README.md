@@ -1,4 +1,4 @@
-# MiA - Nets EASY iOS SDK v1.6.0
+# MiA - Nets EASY iOS SDK v1.6.1
 
 ![](./Resources/NetsLogo.png)
 
@@ -117,7 +117,7 @@ done
 ```
 
 ## Contact
-If you have any question or feedback, please contact us via email: [in-app-support@nets.eu](mailto:in-app-support@nets.eu).
+If you have any question or feedback, please contact us via email: mobile-acceptance@nets.eu.
 
 License
 ----

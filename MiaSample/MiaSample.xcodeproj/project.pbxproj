@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,11 +21,11 @@
 		858FD83D21E736C6008F23E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858FD83B21E736C6008F23E2 /* Main.storyboard */; };
 		858FD83F21E736C7008F23E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 858FD83E21E736C7008F23E2 /* Assets.xcassets */; };
 		858FD84221E736C7008F23E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858FD84021E736C7008F23E2 /* LaunchScreen.storyboard */; };
-		858FD86021E73CFA008F23E2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		858FD86A21E748A7008F23E2 /* EasyCheckout.html in Resources */ = {isa = PBXBuildFile; fileRef = 858FD86721E748A7008F23E2 /* EasyCheckout.html */; };
 		858FD86F21E74F81008F23E2 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858FD86E21E74F81008F23E2 /* RequestManager.swift */; };
 		858FD87521E765DE008F23E2 /* MiaSample+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858FD87421E765DE008F23E2 /* MiaSample+EXT.swift */; };
 		85EFB1DA21F85E1700D90FDC /* TermsAndConditions.html in Resources */ = {isa = PBXBuildFile; fileRef = 85EFB1D921F85E1700D90FDC /* TermsAndConditions.html */; };
+		A16854EB39A1A638007699FE /* Mia.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B30F6DAA59AF7A2CC8AA908F /* Mia.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A38A90C224178A8D008AA7F1 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90C124178A8D008AA7F1 /* SubscriptionsViewController.swift */; };
 		A38A90C62417A098008AA7F1 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90C52417A098008AA7F1 /* Persistance.swift */; };
 		A38A90CD2417EC3D008AA7F1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90CA2417EC3D008AA7F1 /* Networking.swift */; };
@@ -33,8 +33,7 @@
 		A38A90CF2417EC3D008AA7F1 /* APICoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90CC2417EC3D008AA7F1 /* APICoding.swift */; };
 		A38A90D2241F71A6008AA7F1 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90D1241F71A6008AA7F1 /* Subscription.swift */; };
 		A38A90D52420CD73008AA7F1 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A90D42420CD72008AA7F1 /* SubscriptionCell.swift */; };
-		AACFE9F84EEFE60C6E805A0D /* Mia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0906F63007FBD103AF8E7A2 /* Mia.framework */; };
-		C2249565B5EEE68847DD6D4E /* Mia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0906F63007FBD103AF8E7A2 /* Mia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABF52831877D40A276F74872 /* Mia.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30F6DAA59AF7A2CC8AA908F /* Mia.xcframework */; };
 		EC7A42B015EC2B014A5BA9BB /* Pods_MiaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AFA918A084D2EDD9B886CC /* Pods_MiaSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C2249565B5EEE68847DD6D4E /* Mia.framework in Embed Frameworks */,
+				A16854EB39A1A638007699FE /* Mia.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,8 +81,8 @@
 		A38A90CC2417EC3D008AA7F1 /* APICoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICoding.swift; sourceTree = "<group>"; };
 		A38A90D1241F71A6008AA7F1 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		A38A90D42420CD72008AA7F1 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		B30F6DAA59AF7A2CC8AA908F /* Mia.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Mia.xcframework; path = ../libs/Mia.xcframework; sourceTree = "<group>"; };
 		B6EF249C3E1D73861FA3F724 /* Pods-MiaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiaSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiaSample/Pods-MiaSample.release.xcconfig"; sourceTree = "<group>"; };
-		F0906F63007FBD103AF8E7A2 /* Mia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mia.framework; path = ../libs/Mia.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				858FD86021E73CFA008F23E2 /* BuildFile in Frameworks */,
 				EC7A42B015EC2B014A5BA9BB /* Pods_MiaSample.framework in Frameworks */,
-				AACFE9F84EEFE60C6E805A0D /* Mia.framework in Frameworks */,
+				ABF52831877D40A276F74872 /* Mia.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +153,7 @@
 		85092C6C21FBAA5700F0F2CF /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				F0906F63007FBD103AF8E7A2 /* Mia.framework */,
+				B30F6DAA59AF7A2CC8AA908F /* Mia.xcframework */,
 			);
 			name = libs;
 			path = ../../libs;
@@ -239,7 +237,6 @@
 				858FD83221E736C6008F23E2 /* Resources */,
 				858FD86421E73CFA008F23E2 /* Embed Frameworks */,
 				5B4ACC358251BC75762607A8 /* [CP] Embed Pods Frameworks */,
-				85A227E521FBB192006B7AEE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -315,23 +312,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiaSample/Pods-MiaSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		85A227E521FBB192006B7AEE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name 'Mia.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n\n";
 		};
 		D81B48B116B9C8FD923E4BB0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -441,7 +421,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -461,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -505,7 +485,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -519,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -534,12 +514,15 @@
 			baseConfigurationReference = 89490B97F6448AA02F67F711 /* Pods-MiaSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QMGG9DUSQ8;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EGNFYS6P3L;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MiaSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,9 +533,10 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eu.nets.mcommerce.MiaSample;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.nets.mcommerce.MiA.MiaSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = MiaDevelopment;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Nets MiA SDK Development";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)\"/**";
@@ -566,12 +550,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QMGG9DUSQ8;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EGNFYS6P3L;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MiaSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,9 +569,10 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eu.nets.mcommerce.MiaSample;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.nets.mcommerce.MiA.MiaSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = MiaSample_iOSUniversal_Distribution;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Nets MiA SDK Development";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)\"/**";

@@ -1,40 +1,40 @@
 {
   "warnings": [
     {
-      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/Controllers/MiaCheckoutController.h",
+      "file": "/Users/hornets/workspace/os_release_mia-ios-release-1.6.1/Mia/Mia/Controllers/MiaCheckoutController.h",
       "line": 52,
       "symbol": "MiaCheckoutController",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/Controllers/MiaCheckoutController.h",
+      "file": "/Users/hornets/workspace/os_release_mia-ios-release-1.6.1/Mia/Mia/Controllers/MiaCheckoutController.h",
       "line": 54,
       "symbol": "MiaCheckoutController.+makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia/MiaSDK.h",
+      "file": "/Users/hornets/workspace/os_release_mia-ios-release-1.6.1/Mia/Mia/MiaSDK.h",
       "line": 14,
       "symbol": "MiaSDK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia-jazzy.h",
+      "file": "/Users/hornets/workspace/os_release_mia-ios-release-1.6.1/Mia/Mia-jazzy.h",
       "line": 48,
       "symbol": "MiaVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia/Mia-jazzy.h",
+      "file": "/Users/hornets/workspace/os_release_mia-ios-release-1.6.1/Mia/Mia-jazzy.h",
       "line": 51,
       "symbol": "MiaVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/janikytoaho/jenkins/workspace/mia-sdk-ios/Mia"
+  "source_directory": "/Users/hornets/workspace/os_release_mia-ios-release-1.6.1/Mia"
 }
