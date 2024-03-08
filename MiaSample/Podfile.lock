@@ -19,7 +19,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - AlamofireNetworkActivityLogger
     - Crashlytics
@@ -31,12 +31,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireNetworkActivityLogger: 6f3076652ab7fa6c819b59be08ea038d339e36d8
-  Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
+  Crashlytics: 3df6ef91701e6dc98005417f6d4f37ccf0cd3344
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
-  Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
+  Fabric: d7d7820bb92eaf2c3fc36733f6e5ca9692d921e8
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 516c3c9b6ec34419c33985f32c9640a4062e7ba8
+PODFILE CHECKSUM: 0fcc14d4559c3fb19b454f2c8bba52185f5dd807
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.15.2
