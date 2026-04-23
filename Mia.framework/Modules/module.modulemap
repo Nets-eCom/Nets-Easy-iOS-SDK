@@ -4,3 +4,8 @@ framework module Mia {
 
   module * { export * }
 }
+
+module Mia.Swift {
+  header "Mia-Swift.h"
+  requires objc
+}

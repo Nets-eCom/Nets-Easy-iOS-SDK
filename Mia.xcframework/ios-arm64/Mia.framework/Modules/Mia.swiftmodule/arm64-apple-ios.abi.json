@@ -1,0 +1,1478 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "Mia",
+    "printedName": "Mia",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Mia",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MIAPaymentInfo",
+        "printedName": "MIAPaymentInfo",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "paymentId",
+            "printedName": "paymentId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(py)paymentId",
+            "mangledName": "$s3Mia14MIAPaymentInfoC9paymentIdSSvp",
+            "moduleName": "Mia",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(im)paymentId",
+                "mangledName": "$s3Mia14MIAPaymentInfoC9paymentIdSSvg",
+                "moduleName": "Mia",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "paymentURL",
+            "printedName": "paymentURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(py)paymentURL",
+            "mangledName": "$s3Mia14MIAPaymentInfoC10paymentURLSSvp",
+            "moduleName": "Mia",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(im)paymentURL",
+                "mangledName": "$s3Mia14MIAPaymentInfoC10paymentURLSSvg",
+                "moduleName": "Mia",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "returnURL",
+            "printedName": "returnURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(py)returnURL",
+            "mangledName": "$s3Mia14MIAPaymentInfoC9returnURLSSSgvp",
+            "moduleName": "Mia",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(im)returnURL",
+                "mangledName": "$s3Mia14MIAPaymentInfoC9returnURLSSSgvg",
+                "moduleName": "Mia",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cancelURL",
+            "printedName": "cancelURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(py)cancelURL",
+            "mangledName": "$s3Mia14MIAPaymentInfoC9cancelURLSSSgvp",
+            "moduleName": "Mia",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(im)cancelURL",
+                "mangledName": "$s3Mia14MIAPaymentInfoC9cancelURLSSSgvg",
+                "moduleName": "Mia",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(paymentId:paymentURL:returnURL:cancelURL:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MIAPaymentInfo",
+                "printedName": "Mia.MIAPaymentInfo",
+                "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(im)initWithPaymentId:paymentURL:returnURL:cancelURL:",
+            "mangledName": "$s3Mia14MIAPaymentInfoC9paymentId0D3URL06returnF006cancelF0ACSS_S2SSgAHtcfc",
+            "moduleName": "Mia",
+            "objc_name": "initWithPaymentId:paymentURL:returnURL:cancelURL:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MIAPaymentInfo",
+                "printedName": "Mia.MIAPaymentInfo",
+                "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo(im)init",
+            "mangledName": "$s3Mia14MIAPaymentInfoCACycfc",
+            "moduleName": "Mia",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Mia@objc(cs)MIAPaymentInfo",
+        "mangledName": "$s3Mia14MIAPaymentInfoC",
+        "moduleName": "Mia",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "Mia",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Mia",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "Mia"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MiaCheckoutController",
+        "printedName": "MiaCheckoutController",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "make",
+            "printedName": "make(paymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MiaCheckoutController",
+                "printedName": "Mia.MiaCheckoutController",
+                "usr": "c:@M@Mia@objc(cs)MiaCheckoutController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Mia.MiaCheckoutController) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MiaCheckoutController",
+                    "printedName": "Mia.MiaCheckoutController",
+                    "usr": "c:@M@Mia@objc(cs)MiaCheckoutController"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Mia.MiaCheckoutController) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MiaCheckoutController",
+                    "printedName": "Mia.MiaCheckoutController",
+                    "usr": "c:@M@Mia@objc(cs)MiaCheckoutController"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Mia.MiaCheckoutController, any Swift.Error) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Mia.MiaCheckoutController, any Swift.Error)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MiaCheckoutController",
+                        "printedName": "Mia.MiaCheckoutController",
+                        "usr": "c:@M@Mia@objc(cs)MiaCheckoutController"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Mia@objc(cs)MiaCheckoutController(cm)makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC4make9paymentID0E3URL08redirectG006cancelG07success12cancellation7failureACSS_S2SSgALyACcyACcyAC_s5Error_ptctFZ",
+            "moduleName": "Mia",
+            "static": true,
+            "objc_name": "makeWithPaymentID:paymentURL:redirectURL:cancelURL:success:cancellation:failure:",
+            "declAttributes": [
+              "Final",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewDidLoad",
+            "printedName": "viewDidLoad()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Mia@objc(cs)MiaCheckoutController(im)viewDidLoad",
+            "mangledName": "$s3Mia0A18CheckoutControllerC11viewDidLoadyyF",
+            "moduleName": "Mia",
+            "overriding": true,
+            "objc_name": "viewDidLoad",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewDidLayoutSubviews",
+            "printedName": "viewDidLayoutSubviews()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Mia@objc(cs)MiaCheckoutController(im)viewDidLayoutSubviews",
+            "mangledName": "$s3Mia0A18CheckoutControllerC21viewDidLayoutSubviewsyyF",
+            "moduleName": "Mia",
+            "overriding": true,
+            "objc_name": "viewDidLayoutSubviews",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nibName:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MiaCheckoutController",
+                "printedName": "Mia.MiaCheckoutController",
+                "usr": "c:@M@Mia@objc(cs)MiaCheckoutController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Mia@objc(cs)MiaCheckoutController(im)initWithNibName:bundle:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "moduleName": "Mia",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithNibName:bundle:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Mia.MiaCheckoutController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MiaCheckoutController",
+                    "printedName": "Mia.MiaCheckoutController",
+                    "usr": "c:@M@Mia@objc(cs)MiaCheckoutController"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Mia@objc(cs)MiaCheckoutController(im)initWithCoder:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "Mia",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:decidePolicyFor:decisionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKNavigationAction",
+                "printedName": "WebKit.WKNavigationAction",
+                "usr": "c:objc(cs)WKNavigationAction"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(WebKit.WKNavigationActionPolicy) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigationActionPolicy",
+                    "printedName": "WebKit.WKNavigationActionPolicy",
+                    "usr": "c:@E@WKNavigationActionPolicy"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webView:decidePolicyForNavigationAction:decisionHandler:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7webView_15decidePolicyFor15decisionHandlerySo05WKWebE0C_So18WKNavigationActionCySo0lmG0VctF",
+            "moduleName": "Mia",
+            "objc_name": "webView:decidePolicyForNavigationAction:decisionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:didStartProvisionalNavigation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "WebKit.WKNavigation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigation",
+                    "printedName": "WebKit.WKNavigation",
+                    "usr": "c:objc(cs)WKNavigation"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webView:didStartProvisionalNavigation:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7webView_29didStartProvisionalNavigationySo05WKWebE0C_So12WKNavigationCSgtF",
+            "moduleName": "Mia",
+            "objc_name": "webView:didStartProvisionalNavigation:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:didFailProvisionalNavigation:withError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "WebKit.WKNavigation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigation",
+                    "printedName": "WebKit.WKNavigation",
+                    "usr": "c:objc(cs)WKNavigation"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webView:didFailProvisionalNavigation:withError:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7webView_28didFailProvisionalNavigation9withErrorySo05WKWebE0C_So12WKNavigationCSgs0K0_ptF",
+            "moduleName": "Mia",
+            "objc_name": "webView:didFailProvisionalNavigation:withError:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:didFail:withError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "WebKit.WKNavigation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigation",
+                    "printedName": "WebKit.WKNavigation",
+                    "usr": "c:objc(cs)WKNavigation"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webView:didFailNavigation:withError:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7webView_7didFail9withErrorySo05WKWebE0C_So12WKNavigationCSgs0I0_ptF",
+            "moduleName": "Mia",
+            "objc_name": "webView:didFailNavigation:withError:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:didFinish:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "WebKit.WKNavigation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigation",
+                    "printedName": "WebKit.WKNavigation",
+                    "usr": "c:objc(cs)WKNavigation"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webView:didFinishNavigation:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7webView_9didFinishySo05WKWebE0C_So12WKNavigationCSgtF",
+            "moduleName": "Mia",
+            "objc_name": "webView:didFinishNavigation:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:createWebViewWith:for:windowFeatures:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "WebKit.WKWebView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKWebView",
+                    "printedName": "WebKit.WKWebView",
+                    "usr": "c:objc(cs)WKWebView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebViewConfiguration",
+                "printedName": "WebKit.WKWebViewConfiguration",
+                "usr": "c:objc(cs)WKWebViewConfiguration"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKNavigationAction",
+                "printedName": "WebKit.WKNavigationAction",
+                "usr": "c:objc(cs)WKNavigationAction"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWindowFeatures",
+                "printedName": "WebKit.WKWindowFeatures",
+                "usr": "c:objc(cs)WKWindowFeatures"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webView:createWebViewWithConfiguration:forNavigationAction:windowFeatures:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC7webView_09createWebE4With3for14windowFeaturesSo05WKWebE0CSgAI_So0lE13ConfigurationCSo18WKNavigationActionCSo08WKWindowK0CtF",
+            "moduleName": "Mia",
+            "objc_name": "webView:createWebViewWithConfiguration:forNavigationAction:windowFeatures:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webViewDidClose",
+            "printedName": "webViewDidClose(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Mia@objc(cs)MiaCheckoutController(im)webViewDidClose:",
+            "mangledName": "$s3Mia0A18CheckoutControllerC15webViewDidCloseyySo05WKWebE0CF",
+            "moduleName": "Mia",
+            "objc_name": "webViewDidClose:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Mia@objc(cs)MiaCheckoutController",
+        "mangledName": "$s3Mia0A18CheckoutControllerC",
+        "moduleName": "Mia",
+        "objc_name": "MiaCheckoutController",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)UIViewController",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "UIKit.UIViewController",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Mia",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Mia",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Mia"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Mia"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "Mia"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "Mia"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Controllers\/MiaCheckoutController.swift",
+      "kind": "Array",
+      "offset": 427,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 947,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1040,
+      "length": 4,
+      "value": "0.75"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1053,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1120,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1269,
+      "length": 4,
+      "value": "85.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1274,
+      "length": 5,
+      "value": "255.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1288,
+      "length": 5,
+      "value": "187.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1294,
+      "length": 5,
+      "value": "255.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1307,
+      "length": 5,
+      "value": "235.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1313,
+      "length": 5,
+      "value": "255.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1327,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "StringLiteral",
+      "offset": 1506,
+      "length": 13,
+      "value": "\"MIABackIcon\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "StringLiteral",
+      "offset": 1596,
+      "length": 16,
+      "value": "\"MIAForwardIcon\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "StringLiteral",
+      "offset": 1682,
+      "length": 14,
+      "value": "\"MIACloseIcon\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "FloatLiteral",
+      "offset": 2480,
+      "length": 3,
+      "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2601,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2680,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2747,
+      "length": 2,
+      "value": "36"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2816,
+      "length": 2,
+      "value": "36"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3004,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3072,
+      "length": 2,
+      "value": "36"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3142,
+      "length": 2,
+      "value": "36"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3270,
+      "length": 3,
+      "value": "-16"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3353,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3423,
+      "length": 2,
+      "value": "36"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Views\/MiaCustomToolbarView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3495,
+      "length": 2,
+      "value": "36"
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Managers\/WalletManager.swift",
+      "kind": "StringLiteral",
+      "offset": 441,
+      "length": 20,
+      "value": "\"mobilepayonline:\/\/\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Managers\/WalletManager.swift",
+      "kind": "StringLiteral",
+      "offset": 501,
+      "length": 25,
+      "value": "\"mobilepayonline-test:\/\/\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Managers\/WalletManager.swift",
+      "kind": "StringLiteral",
+      "offset": 562,
+      "length": 10,
+      "value": "\"vipps:\/\/\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/mia-sdk-ios\/Mia\/Mia\/SwiftSDK\/Managers\/WalletManager.swift",
+      "kind": "StringLiteral",
+      "offset": 608,
+      "length": 12,
+      "value": "\"vippsMT:\/\/\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/DerivedDataCache\/device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/Mia\/IntermediateBuildFilesPath\/Mia.build\/Release-iphoneos\/Mia.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 735,
+      "length": 13,
+      "value": "\"MIABackIcon\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/DerivedDataCache\/device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/Mia\/IntermediateBuildFilesPath\/Mia.build\/Release-iphoneos\/Mia.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 882,
+      "length": 14,
+      "value": "\"MIACloseIcon\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/DerivedDataCache\/device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/Mia\/IntermediateBuildFilesPath\/Mia.build\/Release-iphoneos\/Mia.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1034,
+      "length": 16,
+      "value": "\"MIADismissIcon\""
+    },
+    {
+      "filePath": "\/Users\/mateuszfiglewicz\/Development\/MiARelease-workspace\/DerivedDataCache\/device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/Mia\/IntermediateBuildFilesPath\/Mia.build\/Release-iphoneos\/Mia.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1188,
+      "length": 16,
+      "value": "\"MIAForwardIcon\""
+    }
+  ]
+}

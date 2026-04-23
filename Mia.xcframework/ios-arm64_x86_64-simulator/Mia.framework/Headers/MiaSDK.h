@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MiaCheckoutController.h"
+//#import "MiaCheckoutController.h"
+@class MiaCheckoutController;
 
 NS_ASSUME_NONNULL_BEGIN
 

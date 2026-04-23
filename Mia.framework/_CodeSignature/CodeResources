@@ -6,27 +6,31 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		cBuLosMt5/FYTL4Vn+2d23xPcxU=
+		GLGXZ0ILDBCfSSLg9sEZIvx2dLM=
+		</data>
+		<key>Headers/Mia-Swift.h</key>
+		<data>
+		TSuC71m4UZUmGfFNHBwoZmeccmw=
 		</data>
 		<key>Headers/Mia.h</key>
 		<data>
 		voYk7nyM78PVp2D4EFhP0G5K5A8=
 		</data>
-		<key>Headers/MiaCheckoutController.h</key>
+		<key>Headers/MiaCheckoutController_old.h</key>
 		<data>
-		kqM1+JVZwczcJ4ujeF8qgMkDoFk=
+		Fa/zhDXmP35DTHzsnOkOJWPMTG8=
 		</data>
 		<key>Headers/MiaSDK.h</key>
 		<data>
-		LtUTRJvRoFspENlX6hIt8FCZkn0=
+		RwIU39TiAT1kBHeVbcjVj3yrLAQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		q/WuSbL9sXGrxLBnocDgfl46UBg=
+		bucY9Ub+RdJJEG0LvEhDCsnrpyM=
 		</data>
 		<key>MIAMain.storyboardc/I7P-HK-2Dp-view-7yP-id-rFz.nib</key>
 		<data>
-		rjfPcCX8wxCom8bQiBTEC5S4DjA=
+		AmdwPzo6CKLUd0cp7zEXzBcFSiU=
 		</data>
 		<key>MIAMain.storyboardc/Info.plist</key>
 		<data>
@@ -42,23 +46,39 @@
 		</data>
 		<key>MIAMain.storyboardc/MiaSDK.nib</key>
 		<data>
-		jaPmI5hnd7xl4DM0MinBSlGJ34c=
+		z7HE69SKG5WGLz1QDbgIo6M+usI=
 		</data>
 		<key>MIAMain.storyboardc/eNi-kD-5Au-view-3Iq-uj-DGA.nib</key>
 		<data>
-		syE+VR66qrP9nptiql3OKicxDsk=
+		MlwgAR1oXmRa8Z9ruk8GFMJiNaI=
+		</data>
+		<key>Modules/Mia.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<data>
+		feDrQcB1uOGrOJ5f5bC7vts+LSU=
+		</data>
+		<key>Modules/Mia.swiftmodule/arm64-apple-ios.abi.json</key>
+		<data>
+		gcwBsH4BgyFY4sVtNt+/xOKS3vY=
+		</data>
+		<key>Modules/Mia.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		oP+gSWzU2JCgsR9Co1uoZYXuQ7U=
+		</data>
+		<key>Modules/Mia.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		w/N52By6zb2lGOXVo9EXgtjnsmw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		2vAafjv3EjiOxCLb1jbQ4CondEg=
+		8PYIQab3NiXc/xJmSKYs596Aj4k=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
 		UdjjlaHlU4tm5SZvCjcwCZD8TKI=
 		</data>
-		<key>PrivateHeaders/MIAPaymentInfo.h</key>
+		<key>PrivateHeaders/MIAPaymentInfo_old.h</key>
 		<data>
-		QPRDHKJaz+qBWfQaYlU/L6Cp/wc=
+		Ki5W1wUcgA2w8b5OZ0Ag/Z2PlO4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -67,7 +87,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIB4K0qflUrh8XKCEEIIdhluGcZ5CrZ65Mi0GBICPSA=
+			P2W8gu61cRnmG9uoMv3tgXHqrS/TWuJJNc5rl9O6GfE=
+			</data>
+		</dict>
+		<key>Headers/Mia-Swift.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ka3jfbiN3PHW3nbFtzm5afbUMF07ZCl6o4FISDNFDNI=
 			</data>
 		</dict>
 		<key>Headers/Mia.h</key>
@@ -77,25 +104,25 @@
 			PhaPv7bFOj6zRLMhiht4/DaR8l3wKp+r9576eZP2aow=
 			</data>
 		</dict>
-		<key>Headers/MiaCheckoutController.h</key>
+		<key>Headers/MiaCheckoutController_old.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FFahgBf7eoFEJSO/h4pI6+TixKeF9/cXBSS7doK5iyM=
+			Vxi8ktCS2moyvf8qDaZphARc/P6ntLiK0LS+mP8lLUc=
 			</data>
 		</dict>
 		<key>Headers/MiaSDK.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8h8ggFC2o0msM4Sr5rmArN5fLoLlLeJZO+5lF9F5CPA=
+			dribBGpuWMcc2oULZjdopgUI1YmmlEb2vCZgMaCOYD4=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/I7P-HK-2Dp-view-7yP-id-rFz.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f6eXr1+zbciQslprWPXQpPUvkNuu4z7xVNmWlawIXoY=
+			6DkhUSmipi2cTlreJh2+oaXjauLHpp4WF9iKNXYk88c=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/Info.plist</key>
@@ -123,21 +150,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Weo7Z3HRALy8cDuqpD+8tJoAztWhwseWJpd7kiFQjeE=
+			cVPxz7bt4XbeQ1WkV0dQchC7uIF9oGEiA3QMu783Ygo=
 			</data>
 		</dict>
 		<key>MIAMain.storyboardc/eNi-kD-5Au-view-3Iq-uj-DGA.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FKr75kLKBWjw85nlHnAGPoYRqdDMEK1rp+0ncdzi5XY=
+			fHJcDp/3l8jkO8f+ccoCW91kWru2/jHC+rKL38dnEYE=
+			</data>
+		</dict>
+		<key>Modules/Mia.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vDhxrH1u6A7XPb2tMVXRpRcOYMVRmYVu6fx8AzvMjSk=
+			</data>
+		</dict>
+		<key>Modules/Mia.swiftmodule/arm64-apple-ios.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Qnesa0n4URGWAopawg9bGx36dUwkYV00BoCJ8LFzlyg=
+			</data>
+		</dict>
+		<key>Modules/Mia.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dGpf/rfxcK1VPE40KOrlkg70JH4P3GPrD422ODJovR4=
+			</data>
+		</dict>
+		<key>Modules/Mia.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			H2jwXMgyNyFZxqa+R39XLP67mjPK+t99QHgIsefNiIo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fZouFeLxBItLkU3Ef9atL7nT5I1dxKmPjYaDGXXhcTc=
+			HCp5KZgezxrwNkU2mqaErOjzgQWCQoNG7NVlLXc1QH0=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
@@ -147,11 +202,11 @@
 			z+UeALk+R7qSypzTpa+vhh7PKdyV6ZDAEvLf0mzOWtE=
 			</data>
 		</dict>
-		<key>PrivateHeaders/MIAPaymentInfo.h</key>
+		<key>PrivateHeaders/MIAPaymentInfo_old.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			soqSdTa/wNFLLdqX9IOqS4ShWN/7RTsDZT2XCo8hXVI=
+			hRxEyUU9wiff8NeY1/g+dzc6pBTP1oucA2hiu76oJ48=
 			</data>
 		</dict>
 	</dict>
