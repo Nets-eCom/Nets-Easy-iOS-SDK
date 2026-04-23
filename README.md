@@ -28,6 +28,16 @@ We have provided a sample project, MiaSample, in the repository which is written
 
 ## Installation
 
+### Swift Package Manager
+To integrate the SDK using Swift Package Manager, follow these steps:
+
+1. Open your project in Xcode.
+2. Select **File > Add Packages...**
+3. Enter the dedicated lightweight repository URL: `[https://github.com/netsconnect/NexiPaygate-iOS-spm](https://github.com/Nets-eCom/Nexi-Checkout-iOS-SDK-spm)`.
+4. Choose the version you want to use.
+5. Select **Add Package**.
+
+See Apple's guide: https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app
 ### Carthage
 * Add the following line to your Cartfile
 ```
