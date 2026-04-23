@@ -33,7 +33,7 @@ To integrate the SDK using Swift Package Manager, follow these steps:
 
 1. Open your project in Xcode.
 2. Select **File > Add Packages...**
-3. Enter the dedicated lightweight repository URL: `[https://github.com/netsconnect/NexiPaygate-iOS-spm](https://github.com/Nets-eCom/Nexi-Checkout-iOS-SDK-spm)`.
+3. Enter the dedicated lightweight repository URL: `https://github.com/Nets-eCom/Nexi-Checkout-iOS-SDK-spm`.
 4. Choose the version you want to use.
 5. Select **Add Package**.
 
