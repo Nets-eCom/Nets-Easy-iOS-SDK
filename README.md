@@ -16,12 +16,6 @@ Additional resources:
 
 ![](./Resources/mia-demo-ios.gif)
 
-## Sample Project
-
-| ![](./Resources/MiaSample1.PNG) | ![](./Resources/MiaSample2.PNG) | ![](./Resources/MiaSample3.PNG) |
-| --- | --- | --- |
-
-We have provided a sample project, MiaSample, in the repository which is written in Swift 4.2 and it demonstrates MiA Nets EASY SDK usage and capabilities. To use it, download the repo, run **pod install** to download the required libraries and open **MiaSample.xcworkspace**. After that, navigate to **API.swift** to add your provided information from Nets Easy platform.
 
 ## Requirements
 * MiA iOS SDK requires iOS 9 or above.
